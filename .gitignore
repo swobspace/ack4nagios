@@ -18,6 +18,7 @@
 /log/*.log
 /tmp
 
+# misc
 *.rbc
 capybara-*.html
 .rspec
@@ -27,10 +28,11 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+
+# ignore sensible information
+shared/config/*.yml
 config/initializers/secret_token.rb
 config/secrets.yml
-
-
 
 ## Environment normalisation:
 # these should all be checked in to normalise the environment:
