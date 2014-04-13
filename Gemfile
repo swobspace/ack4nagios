@@ -21,6 +21,12 @@ gem 'thin'
 gem 'livestatus', git: 'https://github.com/swobspace/livestatus.git',
                   branch: 'master'
 
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
