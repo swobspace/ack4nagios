@@ -16,7 +16,7 @@ Requirements
 ------------
 
 * ruby >= 2.0
-* Nagios with livestatus broker module loaded, see http://mathias-kettner.de/checkmk\_livestatus.html for details.
+* Nagios with livestatus broker module loaded, see http://mathias-kettner.de/checkmk_livestatus.html for details.
 
 System dependencies
 -------------------
