@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '~> 4.1.0'
-gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -28,21 +27,27 @@ gem 'simple_form', git: 'https://github.com/plataformatec/simple_form.git',
 gem 'livestatus', git: 'https://github.com/swobspace/livestatus.git',
                   branch: 'master'
 
+gem 'wobauth', git: 'git@github.com:swobspace/wobauth.git', branch: 'master'
+gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git',
+                     branch: "master"
+
+gem 'ottick', git: 'https://github.com/swobspace/ottick.git', branch: "master"
+gem 'ottrick', git: 'https://github.com/swobspace/ottrick.git', branch: "master"
+gem 'cancancan', '~> 1.8.0'
+
 group :test, :development do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'guard-rspec'
+  gem "guard-livereload", require: false
+  gem 'guard-rails'
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+group :test do
+  gem 'factory_girl_rails'
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+group :production do
+  gem 'mysql2'
+end
