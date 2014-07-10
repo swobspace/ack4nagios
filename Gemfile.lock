@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:swobspace/wobauth.git
-  revision: 510cda46b2df3afc60142c84e16121e496fb526a
+  revision: 23366e5cb9b7e8103c06965860d9efd2cf0f1397
   branch: master
   specs:
     wobauth (0.0.1)
@@ -14,10 +14,10 @@ GIT
 
 GIT
   remote: https://github.com/plataformatec/simple_form.git
-  revision: 01ccfcebd45b8de0a6846d0f33b9daf74673dcc1
+  revision: 5364fdc0f2bcbac2812781dd1aa1a1835d09f9a2
   branch: master
   specs:
-    simple_form (3.1.0.rc1)
+    simple_form (3.1.0.rc2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
 
@@ -152,8 +152,8 @@ GEM
     http_parser.rb (0.6.0)
     httpi (2.2.4)
       rack
-    i18n (0.6.9)
-    jbuilder (2.1.1)
+    i18n (0.6.11)
+    jbuilder (2.1.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-datatables-rails (2.1.10.0.2)
@@ -162,7 +162,7 @@ GEM
     jquery-rails (3.1.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.2.1)
+    jquery-ui-rails (5.0.0)
       railties (>= 3.2.16)
     json (1.8.1)
     libv8 (3.16.14.3)
@@ -179,7 +179,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.3.5)
+    minitest (5.4.0)
     multi_json (1.10.1)
     mysql2 (0.3.16)
     nokogiri (1.6.2.1)
