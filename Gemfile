@@ -42,6 +42,7 @@ group :test, :development do
   gem 'guard-rspec'
   gem "guard-livereload", require: false
   gem 'guard-rails'
+  gem 'guard-bundler'
 end
 
 group :test do
