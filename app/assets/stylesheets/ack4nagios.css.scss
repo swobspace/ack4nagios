@@ -15,3 +15,10 @@ body {
   hr { margin: 24px 0 0 0; }
 }
 
+// --- Nagios states
+
+tr td {
+  &.CRITICAL {background-color: #FAA !important;}
+  &.WARNING  {background-color: #FF9 !important;}
+  &.OK       {background-color: #FF9 !important;}
+}

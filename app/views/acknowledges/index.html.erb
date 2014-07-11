@@ -3,21 +3,21 @@
 <table id="dataTable" class="table table-bordered table-striped dataTable">
 <thead>
   <tr>
-    <th><%= t('attributes.index') %></th>
-    <th></th>
+    <th><%= t('attributes.host_name') %></th>
+    <th><%= t('attributes.service_description') %></th>
+    <th><%= t('attributes.state') %></th>
+    <th><%= t('attributes.plugin_output') %></th>
   </tr>
 </thead>
 <tbody>
 
 <% @acknowledges.each do |acknowledge| %>
-  <%= content_tag_for(:tr, acknowledge) do %>
-    <td><%= acknowledge.index %></td>
-    <td class="nowrap">
-      <%= show_link acknowledge %>
-      <%= edit_link acknowledge %>
-      <%= delete_link acknowledge %>
-    </td>
-  <% end %>
+  <tr>
+    <td><%= acknowledge.host_name %></td>
+    <td><%= acknowledge.description %></td>
+    <%= show_state(acknowledge.state) %>
+    <td><%= acknowledge.plugin_output %></td>
+  </tr>
 <% end %>
 </tbody>
 </table>
@@ -25,4 +25,3 @@
 <br />
 
 <%= back_link %>
-<%= new_link Acknowledge %>
