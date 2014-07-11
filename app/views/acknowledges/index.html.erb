@@ -1,0 +1,28 @@
+<h1><%= t('controller.acknowledges') %></h1>
+
+<table id="dataTable" class="table table-bordered table-striped dataTable">
+<thead>
+  <tr>
+    <th><%= t('attributes.index') %></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+
+<% @acknowledges.each do |acknowledge| %>
+  <%= content_tag_for(:tr, acknowledge) do %>
+    <td><%= acknowledge.index %></td>
+    <td class="nowrap">
+      <%= show_link acknowledge %>
+      <%= edit_link acknowledge %>
+      <%= delete_link acknowledge %>
+    </td>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= back_link %>
+<%= new_link Acknowledge %>
