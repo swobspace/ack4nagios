@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sites
+
   mount Wobauth::Engine, at: '/auth'
   mount Ottrick::Engine, at: '/tts'
   # The priority is based upon order of creation: first created -> highest priority.

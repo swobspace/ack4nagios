@@ -1,0 +1,21 @@
+<table class="table table-bordered table-hover autowidth">
+  <tr>
+    <th><%= t('attributes.name')%>:</th>
+    <td><%= @site.name %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.connection_type')%>:</th>
+    <td><%= @site.connection_type %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.uri')%>:</th>
+    <td><%= @site.uri %></td>
+  </tr>
+</table>
+
+<div class="btn-toolbar" role="toolbar">
+  <%= back_link %>
+  <%= edit_link(@site) %>
+  <%= delete_link(@site) %>
+  <%= new_link Site %>
+</div>

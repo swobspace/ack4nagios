@@ -1,0 +1,32 @@
+<h1><%= t('controller.sites') %></h1>
+
+<table id="dataTable" class="table table-bordered table-striped dataTable">
+<thead>
+  <tr>
+    <th><%= t('attributes.name') %></th>
+    <th><%= t('attributes.connection_type') %></th>
+    <th><%= t('attributes.uri') %></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+
+<% @sites.each do |site| %>
+  <%= content_tag_for(:tr, site) do %>
+    <td><%= site.name %></td>
+    <td><%= site.connection_type %></td>
+    <td><%= site.uri %></td>
+    <td class="nowrap">
+      <%= show_link site %>
+      <%= edit_link site %>
+      <%= delete_link site %>
+    </td>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= back_link %>
+<%= new_link Site %>
