@@ -12,13 +12,18 @@ de:
     description: Beschreibung
     displayname: Anzeigename
     givenname: Vorname
+    host_name: Host
     name: Name
+    plugin_output: Output
+    service_description: Service
     site: Site
     sn: Nachname
+    state: Status
     uri: URI
     username: Username
 
   controller:
+    acknowledges: Acknowledges
     home:  Startseite
     sites: Sites
     users: Benutzer
