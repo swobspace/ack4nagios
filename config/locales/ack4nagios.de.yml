@@ -1,16 +1,21 @@
 de:
   activerecord:
     models:
+      site: Site
       user: User
 
   attributes:
+    connection_type: Verbindungstyp
     description: Beschreibung
     displayname: Anzeigename
     givenname: Vorname
     name: Name
+    site: Site
     sn: Nachname
+    uri: URI
     username: Username
 
   controller:
+    sites: Sites
     users: Benutzer
 
