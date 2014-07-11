@@ -14,7 +14,8 @@
     <div class="form-inputs">
       <%= f.input :name
        %>
-      <%= f.input :connection_type
+      <%= f.input :connection_type, collection: Site::CONNECTION_TYPES,
+		  include_blank: false
        %>
       <%= f.input :uri
        %>
