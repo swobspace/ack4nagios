@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:swobspace/wobauth.git
-  revision: 23366e5cb9b7e8103c06965860d9efd2cf0f1397
+  revision: e84f517acc98253d1167e3d03b263d85eddb0405
   branch: master
   specs:
     wobauth (0.0.1)
@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://github.com/plataformatec/simple_form.git
-  revision: 5364fdc0f2bcbac2812781dd1aa1a1835d09f9a2
+  revision: 97c5832473588b0ad33649264de991d3f7351c59
   branch: master
   specs:
     simple_form (3.1.0.rc2)
@@ -106,10 +106,10 @@ GEM
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
-    coffee-script (2.2.0)
+    coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.7.0)
+    coffee-script-source (1.7.1)
     daemons (1.1.9)
     devise (3.2.4)
       bcrypt (~> 3.0)
@@ -159,7 +159,7 @@ GEM
     jbuilder (2.1.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jquery-datatables-rails (2.1.10.0.2)
+    jquery-datatables-rails (2.1.10.0.3)
       jquery-rails
       sass-rails
     jquery-rails (3.1.1)
