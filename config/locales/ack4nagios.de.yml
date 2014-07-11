@@ -19,6 +19,7 @@ de:
     username: Username
 
   controller:
+    home:  Startseite
     sites: Sites
     users: Benutzer
 
