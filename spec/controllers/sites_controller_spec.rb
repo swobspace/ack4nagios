@@ -24,12 +24,12 @@ RSpec.describe SitesController, :type => :controller do
   # Site. As you add validations to Site, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:site)
   }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) {{
+    connection_type: 'notallowed'
+  }}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -103,14 +103,14 @@ RSpec.describe SitesController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { uri: "/from/anywhere" }
       }
 
       it "updates the requested site" do
         site = Site.create! valid_attributes
         put :update, {:id => site.to_param, :site => new_attributes}, valid_session
         site.reload
-        skip("Add assertions for updated state")
+        expect(site.uri).to be == "/from/anywhere"
       end
 
       it "assigns the requested site as @site" do
