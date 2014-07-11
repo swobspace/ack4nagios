@@ -35,18 +35,27 @@ gem 'ottick', git: 'https://github.com/swobspace/ottick.git', branch: "master"
 gem 'ottrick', git: 'https://github.com/swobspace/ottrick.git', branch: "master"
 gem 'cancancan', '~> 1.8.0'
 
-group :test, :development do
-  gem 'sqlite3'
-  gem 'rspec-rails'
-  gem 'spring-commands-rspec'
-  gem 'guard-rspec'
+group :development do
+  gem 'guard'
   gem "guard-livereload", require: false
   gem 'guard-rails'
   gem 'guard-bundler'
 end
 
+group :test, :development do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem "guard-rspec", require: false
+end
+
 group :test do
+  gem "shoulda", require: false
   gem 'factory_girl_rails'
+  gem 'database_rewinder'
+  gem "capybara"
+  gem "poltergeist"
 end
 
 group :production do
