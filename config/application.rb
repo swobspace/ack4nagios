@@ -29,4 +29,6 @@ module Ack4nagios
     config.i18n.default_locale = :de
     config.time_zone = 'Berlin'
   end
+
+  CONFIGURATION_CONTROLLER = ['sites'].freeze
 end
