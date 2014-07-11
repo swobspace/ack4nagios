@@ -3,14 +3,20 @@ ack4nagios
 
 ack4nagios is a rails application to acknowledge failed nagios 
 services and execute additional actions i.e. send an email, 
-create an otrs ticket and so on.
+create an otrs ticket and so on. ack4nagios is intended to integrate 
+in any web GUI for Nagios via action_url, it does not replace 
+such a web GUI by itself.
 
-ack4nagios is intended to integrate in any web gui for Nagios via action\_url, 
-it does not replace such a web gui by itself.
+I'm using [OMD, the open monitoring distribution](http://www.omdistro.org) 
+to install Nagios and Livestatus. OMD can manage multiple monitoring instances
+in parallel on single server. Each instance is called a site. ack4nagios
+adapts this logic to handle multiple sites at onces. A site contains the 
+configuration parameters to access your livestatus module. There is no need to
+use OMD, but you have to create at least one site in ack4nagios to configure
+livestatus access of your monitoring installation.
 
 
 **THIS APPLICATION IS WORK IN PROGRESS AND NOT FUNCTIONAL YET!** 
-You will loose all your hair and teeth if you use this application ;-)
 
 Requirements
 ------------
