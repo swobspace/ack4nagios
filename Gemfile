@@ -12,7 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',	group: :doc
 gem 'spring',        	group: :development
-gem 'thin'
+gem 'thin',		group: :development
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'jquery-ui-rails'
@@ -40,14 +40,13 @@ group :development do
   gem "guard-livereload", require: false
   gem 'guard-rails'
   gem 'guard-bundler'
+  gem "guard-rspec", require: false
 end
 
 group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails'
-  gem 'spring'
   gem 'spring-commands-rspec'
-  gem "guard-rspec", require: false
 end
 
 group :test do
