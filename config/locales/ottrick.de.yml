@@ -1,0 +1,31 @@
+de:
+  ottrick:
+    errors:
+      otrs_ticket_not_created: Ticket konnte in OTRS nicht angelegt werden!
+
+  activerecord:
+    models:
+      ottrick/otrs_queue: OTRS-Queue
+      ottrick/ticket: Ticket
+
+  attributes:
+    description: Beschreibung
+    displayname: Anzeigename
+    givenname: Vorname
+    name: Name
+    otrs_queue: OTRS-Queue
+    otrs_ticket_id: OTRS Ticket-ID
+    sender: Absender
+    sn: Nachname
+    subject: Betreff
+    text: Text
+    ticket: Ticket
+    ticketfor: Ticket für
+    ticketfor_type: Ticket für (Typ)
+    ticketnumber: Ticketnummer
+    username: Username
+
+  controller:
+    ottrick/otrs_queues: OTRS-Queues
+    ottrick/tickets: Tickets
+
