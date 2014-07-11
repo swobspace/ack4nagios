@@ -1,8 +1,17 @@
 @import "bootstrap";
 @import "bootstrap/theme";
 @import "wobapphelpers/breadcrumbs";
+@import "common";
 
 body {
   padding-top: 50px;
+}
+
+// --- FOOTER
+#footer{
+  padding-left:20px;
+  font-size: small;
+  color: #999;
+  hr { margin: 24px 0 0 0; }
 }
 
