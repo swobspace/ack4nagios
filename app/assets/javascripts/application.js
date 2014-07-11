@@ -2,5 +2,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree bootstrap
+//= require ottrick/ottrick
+//= require bootstrap
 //
