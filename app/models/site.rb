@@ -10,6 +10,10 @@ class Site < ActiveRecord::Base
   validates :uri, presence: true
 
   def to_s
+    "#{name}"
+  end
+
+  def path
     "#{connection_type}#{uri}"
   end
 
