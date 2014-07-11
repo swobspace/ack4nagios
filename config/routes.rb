@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'home' => 'home#index'
+
   resources :sites
 
   mount Wobauth::Engine, at: '/auth'
   mount Ottrick::Engine, at: '/tts'
+
+  root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
