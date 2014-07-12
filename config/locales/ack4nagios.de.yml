@@ -4,6 +4,7 @@ de:
 
   activerecord:
     models:
+      service: Service
       site: Site
       user: User
 
@@ -12,9 +13,11 @@ de:
     description: Beschreibung
     displayname: Anzeigename
     givenname: Vorname
+    host: Host
     host_name: Host
     name: Name
     plugin_output: Output
+    service: Service
     service_description: Service
     site: Site
     sn: Nachname
@@ -25,6 +28,7 @@ de:
   controller:
     acknowledges: Acknowledges
     home:  Startseite
+    services: Services
     sites: Sites
     users: Benutzer
 
