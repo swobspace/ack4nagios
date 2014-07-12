@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:swobspace/wobauth.git
-  revision: e84f517acc98253d1167e3d03b263d85eddb0405
+  revision: 20aa3978cd46ab55d474a7c2884b94b6dabedbd9
   branch: master
   specs:
     wobauth (0.0.1)
@@ -43,7 +43,7 @@ GIT
 
 GIT
   remote: https://github.com/swobspace/ottrick.git
-  revision: b2891d6fa405dfc76fc0eb623c9c626fee690ee7
+  revision: 19e15de86b95b755fa7170971b1c5857308b3d01
   branch: master
   specs:
     ottrick (0.0.1)
