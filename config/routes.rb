@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :services
 
   get 'home' => 'home#index'
 
   resources :sites
+  resources :services, only: [:index, :show]
 
   get ':site/acknowledges' => 'acknowledges#index', as: 'acknowledges'
 
