@@ -1,6 +1,7 @@
 de:
   ack4nagios:
     configuration: Stammdaten
+    tts: TTS
 
   activerecord:
     models:
@@ -22,6 +23,7 @@ de:
     site: Site
     sn: Nachname
     state: Status
+    tts: TTS
     uri: URI
     username: Username
 
