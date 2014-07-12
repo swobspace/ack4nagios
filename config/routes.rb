@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :sites
 
-  get ':site/acknowledges' => 'acknowledges#index'
+  get ':site/acknowledges' => 'acknowledges#index', as: 'acknowledges'
 
   mount Wobauth::Engine, at: '/auth'
   mount Ottrick::Engine, at: '/tts'

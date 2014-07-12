@@ -10,7 +10,7 @@ class AcknowledgesController < ApplicationController
   private
 
   def get_site
-    @site = Site.where(name: params.fetch(:site)).first
+    @site = Site.where(["name = :site or id = :site", site: params.fetch(:site)]).first
   end
 
   def find_acknowledges
