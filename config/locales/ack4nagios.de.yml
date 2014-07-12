@@ -3,6 +3,7 @@ de:
     acks: Acknowledges
     configuration: Stammdaten
     tts: TTS
+    nagios_comment: Kommentar für Nagios
 
   activerecord:
     models:
