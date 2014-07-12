@@ -21,11 +21,13 @@ require 'rails_helper'
 RSpec.describe AcknowledgesController, :type => :controller do
 
   let(:valid_session) { {} }
+  let(:site) { FactoryGirl.create(:site) }
 
   describe "GET index" do
     it "assigns all acknowledges as @acknowledges" do
-      get :index, {}, valid_session
-      expect(response).to be == :success
+      get :index, {site: site.name}, valid_session
+      expect(assigns(:acknowledges)).to be_kind_of Array
+      expect(assigns(:acknowledges).first).to be_kind_of Acknowledge
     end
   end
 
