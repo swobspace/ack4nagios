@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :sites
   resources :services, only: [:index, :show]
 
-  get ':site/acknowledges' => 'acknowledges#index', as: 'acknowledges'
+  get  ':site/acknowledges' => 'acknowledges#index', as: 'acknowledges'
+  post ':site/acknowledges' => 'acknowledges#create'
 
   mount Wobauth::Engine, at: '/auth'
   mount Ottrick::Engine, at: '/tts'
