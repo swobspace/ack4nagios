@@ -7,6 +7,6 @@ FactoryGirl.define do
   factory :site do
     name
     connection_type "unix://"
-    uri "/path/to/socket"
+    uri { ENV['LIVESTATUS_SOCKET'] }
   end
 end
