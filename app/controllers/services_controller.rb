@@ -10,31 +10,8 @@ class ServicesController < ApplicationController
     respond_with(@service)
   end
 
-  def new
-    @service = Service.new
-    respond_with(@service)
-  end
-
-  def edit
-  end
-
-  def create
-    @service = Service.new(service_params)
-    @service.save
-    respond_with(@service)
-  end
-
-  def update
-    @service.update(service_params)
-    respond_with(@service)
-  end
-
-  def destroy
-    @service.destroy
-    respond_with(@service)
-  end
-
   private
+
     def set_service
       @service = Service.find(params[:id])
     end
