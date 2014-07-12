@@ -1,7 +1,7 @@
 <table class="table table-bordered table-hover autowidth">
   <tr>
     <th><%= t('attributes.name')%>:</th>
-    <td><%= @site.name %></td>
+    <td><%= link_to @site.name, acknowledges_path(site: @site) %></td>
   </tr>
   <tr>
     <th><%= t('attributes.connection_type')%>:</th>
