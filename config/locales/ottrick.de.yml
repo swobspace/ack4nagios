@@ -14,6 +14,7 @@ de:
     givenname: Vorname
     name: Name
     otrs_queue: OTRS-Queue
+    otrs_queue_id: OTRS-Queue
     otrs_ticket_id: OTRS Ticket-ID
     sender: Absender
     sn: Nachname
