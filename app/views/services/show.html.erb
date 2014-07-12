@@ -11,11 +11,12 @@
     <th><%= t('attributes.service_description')%>:</th>
     <td><%= @service.service_description %></td>
   </tr>
+  <tr>
+    <th><%= t('attributes.id')%>:</th>
+    <td><%= @service.id %></td>
+  </tr>
 </table>
 
 <div class="btn-toolbar" role="toolbar">
   <%= back_link %>
-  <%= edit_link(@service) %>
-  <%= delete_link(@service) %>
-  <%= new_link Service %>
 </div>

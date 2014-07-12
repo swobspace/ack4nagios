@@ -6,6 +6,7 @@
     <th><%= t('attributes.site') %></th>
     <th><%= t('attributes.host') %></th>
     <th><%= t('attributes.service_description') %></th>
+    <th><%= t('attributes.id') %></th>
     <th></th>
   </tr>
 </thead>
@@ -16,10 +17,9 @@
     <td><%= service.site %></td>
     <td><%= service.host %></td>
     <td><%= service.service_description %></td>
+    <td><%= service.id %></td>
     <td class="nowrap">
       <%= show_link service %>
-      <%= edit_link service %>
-      <%= delete_link service %>
     </td>
   <% end %>
 <% end %>
@@ -29,4 +29,3 @@
 <br />
 
 <%= back_link %>
-<%= new_link Service %>

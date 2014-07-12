@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "services/show", :type => :view do
   before(:each) do
+    site = FactoryGirl.create(:site)
     @service = assign(:service, Service.create!(
-      :site => "Site",
+      :site => site,
       :host => "Host",
       :service_description => "Service Description"
     ))
