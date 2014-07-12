@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20140712100951) do
   add_index "ottrick_tickets", ["ticketfor_id"], name: "index_ottrick_tickets_on_ticketfor_id"
 
   create_table "services", force: true do |t|
-    t.string   "site",                default: ""
+    t.integer  "site_id"
     t.string   "host",                default: ""
     t.string   "service_description", default: ""
     t.datetime "created_at"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140712100951) do
 
   add_index "services", ["host"], name: "index_services_on_host"
   add_index "services", ["service_description"], name: "index_services_on_service_description"
-  add_index "services", ["site"], name: "index_services_on_site"
+  add_index "services", ["site_id"], name: "index_services_on_site_id"
 
   create_table "sites", force: true do |t|
     t.string   "name",            default: ""
