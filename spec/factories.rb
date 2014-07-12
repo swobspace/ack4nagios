@@ -7,7 +7,7 @@ FactoryGirl.define do
   factory :service do
     host { generate(:name) }
     service_description { generate(:name) }
-    site
+    association :site
   end
 
   factory :site do
