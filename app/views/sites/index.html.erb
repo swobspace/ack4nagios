@@ -13,7 +13,7 @@
 
 <% @sites.each do |site| %>
   <%= content_tag_for(:tr, site) do %>
-    <td><%= site.name %></td>
+    <td><%= link_to site.name, acknowledges_path(site: site) %></td>
     <td><%= site.connection_type %></td>
     <td><%= site.uri %></td>
     <td class="nowrap">
