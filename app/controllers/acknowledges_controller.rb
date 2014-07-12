@@ -7,6 +7,10 @@ class AcknowledgesController < ApplicationController
     respond_with(@acknowledges)
   end
 
+  def create
+    @params = params
+  end
+
   private
 
   def get_site
