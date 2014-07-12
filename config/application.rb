@@ -30,5 +30,4 @@ module Ack4nagios
     config.time_zone = 'Berlin'
   end
 
-  CONFIGURATION_CONTROLLER = ['sites'].freeze
 end
