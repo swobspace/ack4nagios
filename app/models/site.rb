@@ -1,5 +1,6 @@
 class Site < ActiveRecord::Base
   # -- associations
+  has_many :services
 
   # -- configuration
   CONNECTION_TYPES = ['unix://']
