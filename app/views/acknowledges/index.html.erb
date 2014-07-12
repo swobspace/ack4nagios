@@ -7,6 +7,7 @@
     <th><%= t('attributes.service_description') %></th>
     <th><%= t('attributes.state') %></th>
     <th><%= t('attributes.plugin_output') %></th>
+    <th>Svc</th>
   </tr>
 </thead>
 <tbody>
@@ -17,6 +18,7 @@
     <td><%= acknowledge.description %></td>
     <%= show_state(acknowledge.state) %>
     <td><%= acknowledge.plugin_output %></td>
+    <td class="center"><%= link_to acknowledge.service_id, service_path(acknowledge.service_id) %></td>
   </tr>
 <% end %>
 </tbody>
