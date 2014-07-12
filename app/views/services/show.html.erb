@@ -1,0 +1,21 @@
+<table class="table table-bordered table-hover autowidth">
+  <tr>
+    <th><%= t('attributes.site')%>:</th>
+    <td><%= @service.site %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.host')%>:</th>
+    <td><%= @service.host %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.service_description')%>:</th>
+    <td><%= @service.service_description %></td>
+  </tr>
+</table>
+
+<div class="btn-toolbar" role="toolbar">
+  <%= back_link %>
+  <%= edit_link(@service) %>
+  <%= delete_link(@service) %>
+  <%= new_link Service %>
+</div>

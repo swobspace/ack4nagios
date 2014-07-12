@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :services
+
   get 'home' => 'home#index'
 
   resources :sites

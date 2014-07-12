@@ -1,0 +1,32 @@
+<h1><%= t('controller.services') %></h1>
+
+<table id="dataTable" class="table table-bordered table-striped dataTable">
+<thead>
+  <tr>
+    <th><%= t('attributes.site') %></th>
+    <th><%= t('attributes.host') %></th>
+    <th><%= t('attributes.service_description') %></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+
+<% @services.each do |service| %>
+  <%= content_tag_for(:tr, service) do %>
+    <td><%= service.site %></td>
+    <td><%= service.host %></td>
+    <td><%= service.service_description %></td>
+    <td class="nowrap">
+      <%= show_link service %>
+      <%= edit_link service %>
+      <%= delete_link service %>
+    </td>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= back_link %>
+<%= new_link Service %>
