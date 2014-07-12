@@ -1,4 +1,15 @@
 <ul class="nav navbar-nav">
+  <% if can? :navigate, :acknowledges %>
+    <li class="dropdown <%= acks_active_class %>">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <%= t('ack4nagios.acks') %><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <% Site.all.each do |site| %>
+          <li><%=link_to site, main_app.acknowledges_path(site: site) %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
   <% if can? :navigate, :tts %>
     <li class="dropdown <%= tts_active_class %>">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">

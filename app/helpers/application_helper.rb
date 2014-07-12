@@ -13,4 +13,10 @@ module ApplicationHelper
       end
     end
 
+    def acks_active_class
+      if controller.controller_name.to_sym == :acknowledges
+        "active"
+      end
+    end
+
 end

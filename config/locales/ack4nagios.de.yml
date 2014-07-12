@@ -1,5 +1,6 @@
 de:
   ack4nagios:
+    acks: Acknowledges
     configuration: Stammdaten
     tts: TTS
 
