@@ -14,7 +14,10 @@ Models
 
 ## Site
 
-    bin/rails g scaffold Site name:string connection_type:string uri:string
+    bin/rails g scaffold Site name:string connection_type:string uri:string \
+                otrs_queue:references
+
+    # bin/rails g migration AddOtrsQueueIdToSite otrs_queue:references
 
 ## Service
 

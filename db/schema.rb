@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712100951) do
+ActiveRecord::Schema.define(version: 20140713104504) do
 
   create_table "ottrick_otrs_queues", force: true do |t|
     t.string   "name"
@@ -55,7 +55,10 @@ ActiveRecord::Schema.define(version: 20140712100951) do
     t.string   "uri",             default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "otrs_queue_id"
   end
+
+  add_index "sites", ["otrs_queue_id"], name: "index_sites_on_otrs_queue_id"
 
   create_table "wobauth_authorities", force: true do |t|
     t.integer  "authorizable_id"
