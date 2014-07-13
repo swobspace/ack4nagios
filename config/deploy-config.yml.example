@@ -1,3 +1,6 @@
+#
+# copy me to deploy-config.yml and edit
+#
 hosts: 
   web: myserver
   app: myserver
