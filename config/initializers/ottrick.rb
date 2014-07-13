@@ -22,7 +22,7 @@ Ottrick.setup do |config|
   # Example:
   # config.ticket_zoom_url = http://localhost/otrs/index.pl?Action=AgentTicketZoom
   # ---
-  # config.ticket_zoom_url = ''
+  config.ticket_zoom_url = ENV['TICKET_ZOOM_URL']
 
   ##################################################
   # Parameter for the Otrs generic interface
@@ -33,7 +33,7 @@ Ottrick.setup do |config|
   # config.endpoint = https://localhost/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnector"
   # Default: nil
   # ---
-  # config.endpoint = nil
+  config.endpoint = ENV['ENDPOINT']
 
   # --- 
   # wsdl: local file or url
@@ -42,22 +42,22 @@ Ottrick.setup do |config|
   # Example:
   # config.wsdl = "GenericTicketConnector.wsdl"
   # ---
-  # config.wsdl = nil
+  config.wsdl = File.expand_path(File.join(Rails.root, 'config/GenericTicketConnector.wsdl'))
 
   # --- 
   # basic auth
   # only neccessary if you use OTRS with http_authenication
   # must be a valid OTRS user with http_authentication
   # ---
-  # config.http_auth_user = nil
-  # config.http_auth_passwd = nil
+  config.http_auth_user = ENV['HTTP_AUTH_USER']
+  config.http_auth_passwd = ENV['HTTP_AUTH_PASSWD']
 
   # --- 
   # UserLogin and Password for web service operations
   # if you use http_authentication, use a dummy string here (can't be left blank)
   # otherwise set credential for a valid OTRS user.
   # ---
-  # config.otrs_user = nil
-  # config.otrs_passwd = nil
+  config.otrs_user = ENV['OTRS_USER']
+  config.otrs_passwd = ENV['OTRS_PASSWD']
 
 end
