@@ -15,7 +15,7 @@ Ottrick.setup do |config|
   # 
   # Example: config.ticketfor_types = ["MyModel"]
   # ---
-  # config.ticketfor_types = []
+  config.ticketfor_types = ["Service"]
 
   # ---
   # OTRS ticket zoom url 
