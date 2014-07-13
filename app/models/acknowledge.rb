@@ -13,7 +13,7 @@ class Acknowledge
   def self.find(args = {})
     args.symbolize_keys!
     site         = args.fetch(:site)
-    filter       = args.fetch(:filter, Acknowledge.default_filter)
+    filter       = args.fetch(:filter!, Acknowledge.default_filter) + args.fetch(:filter, [])
     connection   = Livestatus::Connection.new({uri: site.path})
     services     = connection.get(Livestatus::Service,
                                   Acknowledge.options(filter: filter))
