@@ -51,6 +51,6 @@ class SitesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def site_params
-      params.require(:site).permit(:name, :connection_type, :uri)
+      params.require(:site).permit(:name, :connection_type, :uri, :otrs_queue_id)
     end
 end
