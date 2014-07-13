@@ -1,35 +1,35 @@
 class Acknowledge
-  attr_reader :id, :site, :filter
+  attr_reader :id, :site, :filter, :live_service
 
   def initialize(args = {})
     args.symbolize_keys!
     @site    = args.fetch(:site)
     @filter  = args.fetch(:filter)
-    @service = args.fetch(:service)
+    @live_service = args.fetch(:live_service)
     @id      = service_id
   end
-  delegate :host_name, :description, :state, :plugin_output, to: :@service
+  delegate :host_name, :description, :state, :plugin_output, to: :@live_service
 
   def self.find(args = {})
     args.symbolize_keys!
     site         = args.fetch(:site)
     filter       = args.fetch(:filter!, Acknowledge.default_filter) + args.fetch(:filter, [])
     connection   = Livestatus::Connection.new({uri: site.path})
-    services     = connection.get(Livestatus::Service,
+    live_services     = connection.get(Livestatus::Service,
                                   Acknowledge.options(filter: filter))
     acknowledges = []
-    services.each do |service|
-      acknowledges << self.new(site: site, filter: filter, service: service)
+    live_services.each do |live_service|
+      acknowledges << self.new(site: site, filter: filter, live_service: live_service)
     end
     acknowledges
   end
 
   def service_id
-    Rails.cache.fetch([ self.class.name, @service.host_name,
-                        @service.description, self.site.id ],
+    Rails.cache.fetch([ self.class.name, @live_service.host_name,
+                        @live_service.description, self.site.id ],
                         expires_in: 1.day) {
-      Service.find_or_create_by!(site: site, host: @service.host_name,
-                                 service_description: @service.description).try(:id)
+      Service.find_or_create_by!(site: site, host: @live_service.host_name,
+                                 service_description: @live_service.description).try(:id)
     }
   end
 
