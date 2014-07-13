@@ -10,7 +10,7 @@ module NagiosAcknowledges
     comment     = opts.fetch(:comment)
     services    = Service.find(service_ids)
     services.each do |svc|
-      svc.acknowledge_service(comment: comment)
+      svc.acknowledge_service(comment: comment, author: current_user.username)
     end
   end
 
