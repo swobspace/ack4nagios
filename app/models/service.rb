@@ -1,4 +1,6 @@
 class Service < ActiveRecord::Base
+  include ServiceNagiosAcknowledges
+
   # -- associations
   belongs_to :site
 
