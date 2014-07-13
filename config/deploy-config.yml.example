@@ -1,0 +1,7 @@
+hosts: 
+  web: myserver
+  app: myserver
+  db: myserver
+repo_url: https://github.com/swobspace/ack4nagios.git
+user: deploy
+deploy_to: /var/www/apps/ack4nagios
