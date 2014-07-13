@@ -1,4 +1,6 @@
 class AcknowledgesController < ApplicationController
+  include NagiosAcknowledges
+
   before_action :get_site, only: [:index]
   before_action :find_acknowledges, only: [:index]
 
@@ -10,15 +12,15 @@ class AcknowledgesController < ApplicationController
 
   def create
     if service_ids.empty?
-      redirect_to filter_params.merge(action: :index)
+      return redirect_to filter_params.merge(action: :index)
     end
     if commit == 'Ticket'
     elsif commit == 'Mail'
     elsif commit == 'Acknowledge'
+      acknowledge_services(acknowledge_params)
     elsif commit == 'Test'
-      @params = acknowledge_params.merge(commit: commit)
-      render :create
     end
+    @params = acknowledge_params.merge(commit: commit)
   end
 
   private
