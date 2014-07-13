@@ -1,8 +1,8 @@
 class AcknowledgesController < ApplicationController
   include NagiosAcknowledges
 
-  before_action :get_site, only: [:index]
-  before_action :find_acknowledges, only: [:index]
+  before_action :get_site, only: [:index, :create]
+  before_action :find_acknowledges, only: [:index, :create]
 
   # GET /acknowledges
   def index
@@ -15,6 +15,7 @@ class AcknowledgesController < ApplicationController
       return redirect_to filter_params.merge(action: :index)
     end
     if commit == 'Ticket'
+      create_service_tickets(@acknowledges, acknowledge_params)
     elsif commit == 'Mail'
     elsif commit == 'Acknowledge'
       acknowledge_services(acknowledge_params)
