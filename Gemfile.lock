@@ -1,18 +1,4 @@
 GIT
-  remote: git@github.com:swobspace/wobauth.git
-  revision: 20aa3978cd46ab55d474a7c2884b94b6dabedbd9
-  branch: master
-  specs:
-    wobauth (0.0.1)
-      cancancan (~> 1.7)
-      coffee-rails
-      devise
-      rails (~> 4.1.0)
-      sass-rails
-      simple_form
-      wobapphelpers
-
-GIT
   remote: https://github.com/plataformatec/simple_form.git
   revision: 97c5832473588b0ad33649264de991d3f7351c59
   branch: master
@@ -61,6 +47,20 @@ GIT
   specs:
     wobapphelpers (0.0.1)
       responders
+
+GIT
+  remote: https://github.com/swobspace/wobauth.git
+  revision: 20aa3978cd46ab55d474a7c2884b94b6dabedbd9
+  branch: master
+  specs:
+    wobauth (0.0.1)
+      cancancan (~> 1.7)
+      coffee-rails
+      devise
+      rails (~> 4.1.0)
+      sass-rails
+      simple_form
+      wobapphelpers
 
 GEM
   remote: https://rubygems.org/
