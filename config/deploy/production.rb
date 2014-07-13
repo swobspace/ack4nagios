@@ -1,22 +1,9 @@
-# Simple Role Syntax
-# ==================
-# Supports bulk-adding hosts to roles, the primary server in each group
-# is considered to be the first unless any hosts have the primary
-# property set.  Don't declare `role :all`, it's a meta role.
+# production.rb
+config = YAML.load_file('config/deploy-config.yml') || {}
 
-role :app, %w{deploy@example.com}
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
-
-
-# Extended Server Syntax
-# ======================
-# This can be used to drop a more detailed server definition into the
-# server list. The second argument is a, or duck-types, Hash and is
-# used to set extended properties on the server.
-
-server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
-
+role :app, config['hosts']['app']
+role :web, config['hosts']['web']
+role :db,  config['hosts']['db']
 
 # Custom SSH Options
 # ==================
@@ -43,3 +30,8 @@ server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+set :ssh_options, {
+    forward_agent: false,
+    auth_methods: %w(publickey),
+    user: config['user'],
+}
