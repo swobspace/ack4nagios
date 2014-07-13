@@ -34,6 +34,7 @@ gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git',
 gem 'ottick', git: 'https://github.com/swobspace/ottick.git', branch: "master"
 gem 'ottrick', git: 'https://github.com/swobspace/ottrick.git', branch: "master"
 gem 'cancancan', '~> 1.8.0'
+gem 'figaro', '~> 1.0.0.rc1'
 
 group :development do
   gem 'guard'
