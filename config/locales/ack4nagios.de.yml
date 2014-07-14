@@ -30,7 +30,7 @@ de:
     username: Username
 
   controller:
-    acknowledges: Acknowledges
+    acknowledges: Offene Probleme
     home:  Startseite
     services: Services
     sites: Sites
