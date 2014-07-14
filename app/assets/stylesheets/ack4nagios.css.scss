@@ -22,3 +22,9 @@ tr td {
   &.WARNING  {background-color: #FF9 !important;}
   &.OK       {background-color: #FF9 !important;}
 }
+
+// --- dataTable
+
+table.dataTable.no-footer {
+  border-bottom: 1px solid #ddd;
+}
