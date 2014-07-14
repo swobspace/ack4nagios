@@ -1,0 +1,3 @@
+/config/application.yml	export-ignore
+/config/database.yml	export-ignore
+/config/GenericTicketConnector.wsdl	export-ignore
