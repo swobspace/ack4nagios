@@ -5,7 +5,7 @@
 $.extend $.fn.dataTableExt.oStdClasses,
   sWrapper: "dataTables_wrapper form-inline"
 
-$ ->
+ready = ->
   $(".dataTable").dataTable
     sPaginationType: "bootstrap"
     sDom: "<'row'<'col-md-4'l><'col-md-4 btn-group'T><'col-md-4'f>>t<'row'<'col-md-6'ir><'col-md-6'p>>"
@@ -29,3 +29,5 @@ $ ->
         if link?
           window.location.href = link
 
+$(document).ready(ready)
+$(document).on('page:load', ready)
