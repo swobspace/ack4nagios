@@ -1,6 +1,8 @@
 # production.rb
 config = YAML.load_file('config/deploy-config.yml') || {}
 
+set :rails_env, 'production'
+
 role :app, config['hosts']['app']
 role :web, config['hosts']['web']
 role :db,  config['hosts']['db']
