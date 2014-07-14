@@ -5,6 +5,7 @@ config = YAML.load_file('config/deploy-config.yml') || {}
 
 set :application, 'ack4nagios'
 set :repo_url, config['repo_url']
+set :relative_url_root, config['relative_url_root'] || '/'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -32,6 +33,7 @@ set :linked_files, %w{config/database.yml config/application.yml config/GenericT
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, { rails_relative_url_root: fetch(:relative_url_root) }
 
 set :shell, "bash -l"
 
