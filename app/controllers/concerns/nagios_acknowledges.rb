@@ -29,6 +29,7 @@ module NagiosAcknowledges
         otrs_queue_id: ack.site.otrs_queue_id
       )
     end
+    acknowledge_services(service_ids: service_ids, comment: comment)
   end
 
 
