@@ -1,5 +1,7 @@
 module NagiosAcknowledges
   extend ActiveSupport::Concern
+  include ActionView::Helpers::UrlHelper
+  include Ottrick::TicketsHelper
 
   included do
   end
@@ -20,7 +22,7 @@ module NagiosAcknowledges
     comment     = opts.fetch(:comment, "kein Kommentar angegeben")
     acknowledges.each do |ack|
       next unless service_ids.include?(ack.service_id)
-      Ottrick::Ticket.create!(
+      ticket = Ottrick::Ticket.create(
         ticketfor_id: ack.service_id,
         ticketfor_type: "Service",
         subject: "#{ack.host_name}/#{ack.description}: #{ack.plugin_output}",
@@ -28,8 +30,11 @@ module NagiosAcknowledges
         sender:  current_user.email,
         otrs_queue_id: ack.site.otrs_queue_id
       )
+      if ticket.persisted?
+        comment += "; Ticket-Nummer " + otrs_ticket_link(ticket, :number).html_safe
+        ticket.ticketfor.acknowledge_service(comment: comment, author: current_user.username)
+      end
     end
-    acknowledge_services(service_ids: service_ids, comment: comment)
   end
 
 
