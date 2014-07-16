@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/plataformatec/simple_form.git
-  revision: 97c5832473588b0ad33649264de991d3f7351c59
+  revision: ed3de1c2b566a962697529e824953f6b280e2867
   branch: master
   specs:
     simple_form (3.1.0.rc2)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/swobspace/ottrick.git
-  revision: 19e15de86b95b755fa7170971b1c5857308b3d01
+  revision: f055b80c6b81338ba577aaa8297948dbeb1c48a5
   branch: master
   specs:
     ottrick (0.0.1)
@@ -181,7 +181,7 @@ GEM
     httpi (2.2.4)
       rack
     i18n (0.6.11)
-    jbuilder (2.1.2)
+    jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-datatables-rails (2.1.10.0.3)
