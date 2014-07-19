@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713104504) do
+ActiveRecord::Schema.define(version: 20140719122025) do
 
   create_table "ottrick_otrs_queues", force: true do |t|
     t.string   "name"
@@ -50,12 +50,13 @@ ActiveRecord::Schema.define(version: 20140713104504) do
   add_index "services", ["site_id"], name: "index_services_on_site_id"
 
   create_table "sites", force: true do |t|
-    t.string   "name",            default: ""
-    t.string   "connection_type", default: ""
-    t.string   "uri",             default: ""
+    t.string   "name",               default: ""
+    t.string   "connection_type",    default: ""
+    t.string   "uri",                default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "otrs_queue_id"
+    t.string   "nagios_service_url"
   end
 
   add_index "sites", ["otrs_queue_id"], name: "index_sites_on_otrs_queue_id"
