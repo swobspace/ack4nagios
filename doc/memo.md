@@ -15,9 +15,10 @@ Models
 ## Site
 
     bin/rails g scaffold Site name:string connection_type:string uri:string \
-                otrs_queue:references
+                otrs_queue:references nagios_service_url:string
 
     # bin/rails g migration AddOtrsQueueIdToSite otrs_queue:references
+    # bin/rails g migration AddNagiosServiceUrlToSite nagios_service_url:string
 
 ## Service
 

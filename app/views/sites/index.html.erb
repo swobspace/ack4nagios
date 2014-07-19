@@ -7,6 +7,7 @@
     <th><%= t('attributes.connection_type') %></th>
     <th><%= t('attributes.uri') %></th>
     <th><%= t('attributes.otrs_queue') %></th>
+    <th><%= t('attributes.nagios_service_url') %></th>
     <th></th>
   </tr>
 </thead>
@@ -18,6 +19,7 @@
     <td><%= site.connection_type %></td>
     <td><%= site.uri %></td>
     <td><%= site.otrs_queue %></td>
+    <td><%= site.nagios_service_url %></td>
     <td class="nowrap">
       <%= show_link site %>
       <%= edit_link site %>
