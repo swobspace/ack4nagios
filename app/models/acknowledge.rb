@@ -34,6 +34,7 @@ Status:      #{state.to_s.capitalize}
 Last ok:     #{Time.at(last_time_ok).to_date.to_s}
 Last change: #{Time.at(last_hard_state_change).to_date.to_s}
 Age (days):  #{(Time.now.to_i - last_time_ok.to_i)/86400}
+Link:        #{site.nagios_service_link(host_name, description)}
 ]
   end
 
