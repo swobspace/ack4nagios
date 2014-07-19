@@ -18,7 +18,11 @@ class AcknowledgesController < ApplicationController
       flash[:notice] = t('ack4nagios.no_checkbox_set')
     else
       if commit == 'Ticket'
-	create_service_tickets(@acknowledges, acknowledge_params)
+        if merge_acks
+	  create_merged_ticket(@acknowledges, acknowledge_params)
+        else
+	  create_service_tickets(@acknowledges, acknowledge_params)
+        end
       elsif commit == 'Mail'
       elsif commit == 'Acknowledge'
 	acknowledge_services(acknowledge_params)
@@ -53,7 +57,7 @@ class AcknowledgesController < ApplicationController
   end
 
   def acknowledge_params
-    params.permit(:site, :comment, {service_ids: []})
+    params.permit(:site, :comment, {service_ids: []}, :merge)
   end
 
   def filter_params
@@ -78,5 +82,9 @@ class AcknowledgesController < ApplicationController
 
   def commit
     params[:commit]
+  end
+
+  def merge_acks
+    params[:merge].to_i == 1
   end
 end

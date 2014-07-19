@@ -3,6 +3,7 @@ de:
     acks: Acknowledges
     configuration: Stammdaten
     mandantory: Pflichtfeld
+    merge_acknowledges: Acknowledges zusammenfassen (Sammel-Ticket oder -Mail)
     nagios_comment: Kommentar für Nagios
     no_checkbox_set: Kein Haken gesetzt, nichts unternommen
     tts: TTS
