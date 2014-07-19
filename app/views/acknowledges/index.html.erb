@@ -22,16 +22,18 @@
         </tr>
       </thead>
       <tbody>
-        <% @acknowledges.each do |acknowledge| %>
+        <% @acknowledges.each do |ack| %>
           <tr>
-            <td class="center"><%= check_box_tag "service_ids[]", acknowledge.id %></td>
-            <td><%= acknowledge.host_name %></td>
-            <td><%= acknowledge.description %></td>
-            <%= show_state(acknowledge.state) %>
-            <td><%= acknowledge.plugin_output %></td>
-            <td class="center"><%= (Time.now.to_i - acknowledge.last_time_ok.to_i)/86400 %></td>
-            <td><%= Time.at(acknowledge.last_time_ok).to_date.to_s %></td>
-            <td class="center"><%= link_to acknowledge.service_id, service_path(acknowledge.service_id) %></td>
+            <td class="center"><%= check_box_tag "service_ids[]", ack.id %></td>
+            <td><%= ack.host_name %></td>
+            <td><%= link_to ack.description, 
+                    ack.site.nagios_service_link(ack.host_name, ack.description),
+                    target: :blank %></td>
+            <%= show_state(ack.state) %>
+            <td><%= ack.plugin_output %></td>
+            <td class="center"><%= (Time.now.to_i - ack.last_time_ok.to_i)/86400 %></td>
+            <td><%= Time.at(ack.last_time_ok).to_date.to_s %></td>
+            <td class="center"><%= link_to ack.service_id, service_path(ack.service_id) %></td>
           </tr>
         <% end %>
       </tbody>
