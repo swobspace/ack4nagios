@@ -35,7 +35,8 @@ module NagiosAcknowledges
       if ticket.persisted?
         comment += "; Ticket-Nummer " + otrs_ticket_link(ticket, :number).html_safe
         ticket.ticketfor.acknowledge_service(comment: comment, author: current_user.username)
-        @success << "#{ack.host_name}/#{ack.description}: Ticket #{ticket.ticketnumber} angelegt"
+        @success << "#{ack.host_name}/#{ack.description}: " +
+                    "Ticket #{otrs_ticket_link(ticket, :number)} angelegt"
       else
         errors = "Ticket konnte nicht angelegt werden: "
         if ticket.errors.any?
