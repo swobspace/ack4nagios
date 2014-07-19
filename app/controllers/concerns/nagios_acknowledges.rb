@@ -9,7 +9,8 @@ module NagiosAcknowledges
   def acknowledge_services(args = {})
     opts = args.symbolize_keys
     service_ids = opts.fetch(:service_ids)
-    comment     = opts.fetch(:comment, "kein Kommentar angegeben")
+    comment     = opts.fetch(:comment, "")
+    comment     = "Kein Kommentar angegeben" if comment.blank?
     services    = Service.find(service_ids)
     services.each do |svc|
       svc.acknowledge_service(comment: comment, author: current_user.username)
@@ -19,7 +20,8 @@ module NagiosAcknowledges
   def create_service_tickets(acknowledges, args = {})
     opts = args.symbolize_keys
     service_ids = opts.fetch(:service_ids).map(&:to_i)
-    comment     = opts.fetch(:comment, "kein Kommentar angegeben")
+    comment     = opts.fetch(:comment, "")
+    comment     = "Kein Kommentar angegeben" if comment.blank?
     acknowledges.each do |ack|
       next unless service_ids.include?(ack.service_id)
       ticket = Ottrick::Ticket.create(
@@ -33,6 +35,13 @@ module NagiosAcknowledges
       if ticket.persisted?
         comment += "; Ticket-Nummer " + otrs_ticket_link(ticket, :number).html_safe
         ticket.ticketfor.acknowledge_service(comment: comment, author: current_user.username)
+        @success << "#{ack.host_name}/#{ack.description}: Ticket #{ticket.ticketnumber} angelegt"
+      else
+        errors = "Ticket konnte nicht angelegt werden: "
+        if ticket.errors.any?
+          errors += ticket.errors.full_messages.join("; ")
+        end
+        @errors << errors
       end
     end
   end
