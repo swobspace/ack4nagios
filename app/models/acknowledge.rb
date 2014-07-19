@@ -8,7 +8,8 @@ class Acknowledge
     @live_service = args.fetch(:live_service)
     @id      = service_id
   end
-  delegate :host_name, :description, :state, :plugin_output, to: :@live_service
+  delegate :host_name, :description, :state, :plugin_output,
+           :last_hard_state_change, :last_time_ok, to: :@live_service
 
   def self.find(args = {})
     args.symbolize_keys!
@@ -22,6 +23,17 @@ class Acknowledge
       acknowledges << self.new(site: site, filter: filter, live_service: live_service)
     end
     acknowledges
+  end
+
+  def info
+ %Q[\
+Host:        #{host_name}
+Service:     #{description}
+Message:     #{plugin_output}
+Status:      #{state.to_s.capitalize}
+Last ok:     #{Time.at(last_time_ok).to_date.to_s}
+Last change: #{Time.at(last_hard_state_change).to_date.to_s}
+]
   end
 
   def service_id
@@ -38,7 +50,7 @@ private
   def self.options(args = {})
     args.symbolize_keys!
     {
-      columns: 'host_name description state plugin_output',
+      columns: 'host_name description state plugin_output last_hard_state_change last_time_ok',
       filter: args.fetch(:filter)
     }
   end
