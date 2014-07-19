@@ -14,6 +14,7 @@ de:
       user: User
 
   attributes:
+    age: Alter (Tage)
     connection_type: Verbindungstyp
     description: Beschreibung
     displayname: Anzeigename
@@ -21,6 +22,8 @@ de:
     host: Host
     host_name: Host
     name: Name
+    last_hard_state_change: Letzter Statuswechsel
+    last_time_ok: Letztes OK
     plugin_output: Output
     service: Service
     service_description: Service
