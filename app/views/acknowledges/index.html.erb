@@ -35,7 +35,8 @@
   </div>
 
   <div class="form-group">
-    <%= label_tag 'comment', t('ack4nagios.nagios_comment') + ': ' %>
+    <%= label_tag 'comment', t('ack4nagios.nagios_comment') +
+          '(' + t('ack4nagios.mandantory') + '): ' %>
     <%= text_field_tag 'comment', nil, class: 'form-control' %>
   </div>
   
