@@ -28,7 +28,7 @@ module NagiosAcknowledges
         ticketfor_id: ack.service_id,
         ticketfor_type: "Service",
         subject: "#{ack.host_name}/#{ack.description}: #{ack.plugin_output}",
-        text:    comment,
+        text:    comment + "\n\n" + ack.info,
         sender:  current_user.email,
         otrs_queue_id: ack.site.otrs_queue_id
       )
