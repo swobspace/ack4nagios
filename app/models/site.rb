@@ -20,5 +20,14 @@ class Site < ActiveRecord::Base
     "#{connection_type}#{uri}"
   end
 
+  def nagios_service_link(host, service)
+    unless nagios_service_url.blank?
+      url = nagios_service_url.
+              gsub(/#HOST#/, host).
+              gsub(/#SERVICE#/, service)
+      URI.escape(url)
+    end
+  end
+
 
 end
