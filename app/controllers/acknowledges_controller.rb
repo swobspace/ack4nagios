@@ -11,17 +11,35 @@ class AcknowledgesController < ApplicationController
   end
 
   def create
-    if service_ids.empty?
-      return redirect_to filter_params.merge(action: :index)
-    end
-    if commit == 'Ticket'
-      create_service_tickets(@acknowledges, acknowledge_params)
-    elsif commit == 'Mail'
-    elsif commit == 'Acknowledge'
-      acknowledge_services(acknowledge_params)
-    elsif commit == 'Test'
-    end
+    @errors  = []
+    @success = []
     @params = acknowledge_params.merge(commit: commit)
+    if service_ids.empty?
+      flash[:notice] = t('ack4nagios.no_checkbox_set')
+    else
+      if commit == 'Ticket'
+	create_service_tickets(@acknowledges, acknowledge_params)
+      elsif commit == 'Mail'
+      elsif commit == 'Acknowledge'
+	acknowledge_services(acknowledge_params)
+      elsif commit == 'Test'
+      end
+      if @errors.any?
+	flash[:error] = @errors.join("\n")
+      end
+      if @success.any?
+	flash[:success] = @success.join("\n")
+      end
+    end
+    respond_to do |format|
+      format.html { 
+        if commit == 'Test'
+          render :create
+        else
+          redirect_to main_app.url_for(filter_params.merge(action: :index)) 
+        end
+      }
+    end
   end
 
   private

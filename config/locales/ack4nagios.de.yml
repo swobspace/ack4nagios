@@ -2,8 +2,10 @@ de:
   ack4nagios:
     acks: Acknowledges
     configuration: Stammdaten
-    tts: TTS
+    mandantory: Pflichtfeld
     nagios_comment: Kommentar für Nagios
+    no_checkbox_set: Kein Haken gesetzt, nichts unternommen
+    tts: TTS
 
   activerecord:
     models:
