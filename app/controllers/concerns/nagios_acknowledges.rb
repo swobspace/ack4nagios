@@ -10,10 +10,14 @@ module NagiosAcknowledges
     opts = args.symbolize_keys
     service_ids = opts.fetch(:service_ids)
     comment     = opts.fetch(:comment, "")
+    flash       = opts.fetch(:flash, true)
     comment     = "Kein Kommentar angegeben" if comment.blank?
     services    = Service.find(service_ids)
     services.each do |svc|
       svc.acknowledge_service(comment: comment, author: current_user.username)
+    end
+    if flash
+      @success << t('ack4nagios.acknowledges_set')
     end
   end
 
@@ -36,9 +40,10 @@ module NagiosAcknowledges
         comment += "; Ticket-Nummer " + otrs_ticket_link(ticket, :number).html_safe
         ticket.ticketfor.acknowledge_service(comment: comment, author: current_user.username)
         @success << "#{ack.host_name}/#{ack.description}: " +
-                    "Ticket #{otrs_ticket_link(ticket, :number)} angelegt"
+                    t('ack4nagios.ticket_created',
+                      ticketnumber: otrs_ticket_link(ticket, :number))
       else
-        errors = "Ticket konnte nicht angelegt werden: "
+        errors = t('ack4nagios.no_ticket_created') + ' '
         if ticket.errors.any?
           errors += ticket.errors.full_messages.join("; ")
         end
@@ -53,7 +58,7 @@ module NagiosAcknowledges
     service_ids = opts.fetch(:service_ids).map(&:to_i)
     comment     = opts.fetch(:comment, "")
     if comment.blank?
-      @errors << "Kein Kommentar angegeben, wird als Subject für das Ticket gebraucht"
+      @errors << t('ack4nagios.no_comment_created')
       return
     end
 
@@ -72,10 +77,11 @@ module NagiosAcknowledges
     )
     if ticket.persisted?
       comment += "; Ticket-Nummer " + otrs_ticket_link(ticket, :number).html_safe
-      @success << "Ticket #{otrs_ticket_link(ticket, :number)} angelegt"
-      acknowledge_services(service_ids: service_ids, comment: comment)
+      @success << t('ack4nagios.ticket_created',
+                     ticketnumber: otrs_ticket_link(ticket, :number))
+      acknowledge_services(service_ids: service_ids, comment: comment, flash: false)
     else
-      errors = "Ticket konnte nicht angelegt werden: "
+      errors = t('ack4nagios.no_ticket_created') + ' '
       if ticket.errors.any?
 	errors += ticket.errors.full_messages.join("; ")
       end

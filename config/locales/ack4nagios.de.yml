@@ -1,11 +1,16 @@
 de:
   ack4nagios:
     acks: Acknowledges
+    acknowledges_set: Acknowledges gesetzt.
     configuration: Stammdaten
     mandantory: Pflichtfeld
     merge_acknowledges: Acknowledges zusammenfassen (Sammel-Ticket oder -Mail)
     nagios_comment: Kommentar für Nagios
-    no_checkbox_set: Kein Eintrag ausgewählt, nichts unternommen
+    no_checkbox_set: Kein Eintrag ausgewählt, nichts unternommen.
+    no_ticket_created: Ticket konnte nicht angelegt werden.
+    reload_browser: Bitte die Seite im Browser neu laden.
+    ticket_created: Ticket %{ticketnumber} angelegt
+    no_comment_for_subject: Kein Kommentar angegeben, wird als Betreff für das Ticket benötigt.
     tts: TTS
 
   activerecord:
