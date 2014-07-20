@@ -5,7 +5,7 @@ de:
     mandantory: Pflichtfeld
     merge_acknowledges: Acknowledges zusammenfassen (Sammel-Ticket oder -Mail)
     nagios_comment: Kommentar für Nagios
-    no_checkbox_set: Kein Haken gesetzt, nichts unternommen
+    no_checkbox_set: Kein Eintrag ausgewählt, nichts unternommen
     tts: TTS
 
   activerecord:
