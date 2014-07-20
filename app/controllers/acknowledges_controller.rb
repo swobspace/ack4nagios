@@ -40,6 +40,7 @@ class AcknowledgesController < ApplicationController
         if commit == 'Test'
           render :create
         else
+          sleep 1
           redirect_to main_app.url_for(filter_params.merge(action: :index)) 
         end
       }
