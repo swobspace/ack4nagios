@@ -7,16 +7,16 @@ module ServiceNagiosAcknowledges
   def acknowledge_service(args = {})
     args.symbolize_keys!
     conn = Livestatus::Connection.new({uri: self.site.path})
-    conn.command(command(args))
+    conn.command(acknowledge_svc_problem(args))
   end
 
 private
 
   # 40 ACKNOWLEDGE_SVC_PROBLEM;<host_name>;<service_description>;<sticky>;<notify>;<persistent>;<author>;<comment>
-  def command(args)
+  def acknowledge_svc_problem(args)
     comment = args.fetch(:comment)
-    sticky  = args.fetch(:sticky, 0)
-    notify  = args.fetch(:notify, 0)
+    sticky  = args.fetch(:sticky, 2)
+    notify  = args.fetch(:notify, 1)
     author  = args.fetch(:author, 0)
     persistent = args.fetch(:persistent, 0)
 
