@@ -46,4 +46,4 @@ config/deploy-config.yml
 .localenv
 
 # Ignore application configuration
-/shared/config/application.yml
+/shared/*.yml
