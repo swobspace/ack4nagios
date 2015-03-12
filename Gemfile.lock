@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/swobspace/ottrick.git
-  revision: 12809d48720b990bb5f43971e10551602f006ce8
+  revision: 0c8d109198bb72dae0d999a24a32ea5682a1add0
   branch: master
   specs:
     ottrick (0.0.1)
