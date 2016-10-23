@@ -1,7 +1,7 @@
 class Site < ActiveRecord::Base
   # -- associations
   has_many :services
-  belongs_to :otrs_queue, class: Ottrick::OtrsQueue, 
+  belongs_to :otrs_queue, class_name: Ottrick::OtrsQueue, 
                           foreign_key: :otrs_queue_id
 
   # -- configuration
