@@ -16,12 +16,12 @@ guard 'livereload' do
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
 end
 
-guard 'rails', :daemon => true, :force_run => true, :timeout => 10, :server => 'thin' do
+guard 'rails', daemon: true, server: 'puma' do
   watch('Gemfile.lock')
   watch(%r{^(config|lib)/.*})
 end
 
-guard :rspec, cmd: "spring rspec" do
+guard :rspec, cmd: "bin/rspec" do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
