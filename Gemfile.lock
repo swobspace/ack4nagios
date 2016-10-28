@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/swobspace/ottrick.git
-  revision: 8b131c9de58a6937cef24818fef3d7776fa275ae
+  revision: 39bd9a81212b573e22ff3d7ebf2750f2bfbb0f1c
   branch: master
   specs:
     ottrick (0.0.1)
@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/swobspace/wobapphelpers.git
-  revision: 2ae54f852225b4d1d17c0e2cd6b1b0ed80acc442
+  revision: 649d2024f92a40e219d78ae3a67063abdedca4e3
   branch: 1-0-stable
   specs:
     wobapphelpers (1.0.0)
@@ -292,7 +292,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.3.0)
-    rb-fsevent (0.9.7)
+    rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     rdoc (4.2.2)
@@ -377,7 +377,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.2)
+    uglifier (3.0.3)
       execjs (>= 0.3.0, < 3)
     warden (1.2.6)
       rack (>= 1.0)
