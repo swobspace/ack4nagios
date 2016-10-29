@@ -2,16 +2,27 @@ de:
   ack4nagios:
     acks: Acknowledges
     acknowledges_set: Acknowledges gesetzt.
+    change_columns: Spalten ändern
     configuration: Stammdaten
     mandantory: Pflichtfeld
     merge_acknowledges: Acknowledges zusammenfassen (Sammel-Ticket oder -Mail)
     nagios_comment: Kommentar für Nagios
     no_checkbox_set: Kein Eintrag ausgewählt, nichts unternommen.
+    no_comment_for_subject: Kein Kommentar angegeben, wird als Betreff für das Ticket benötigt.
     no_ticket_created: Ticket konnte nicht angelegt werden.
     reload_browser: Bitte die Seite im Browser neu laden.
+    restore: zurücksetzen
+    search: Suche
     ticket_created: Ticket %{ticketnumber} angelegt
-    no_comment_for_subject: Kein Kommentar angegeben, wird als Betreff für das Ticket benötigt.
     tts: TTS
+
+  actions:
+    destroy: Datensatz löschen
+    mandantory: Pflichtfelder
+    optional: Optional
+    search: Suche
+    cancel: abbrechen
+    reset_table: Tabelle zurücksetzen
 
   activerecord:
     models:

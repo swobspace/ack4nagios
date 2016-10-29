@@ -9,11 +9,11 @@ body {
 }
 
 // --- FOOTER
-#footer{
-  padding-left:20px;
+div#footer{
   font-size: small;
   color: #999;
-  hr { margin: 24px 0 0 0; }
+  margin: 24px 0 0 0;
+  border-top: 1px solid #eee;
 }
 
 // --- Nagios states
@@ -28,4 +28,24 @@ tr td {
 
 table.dataTable.no-footer {
   border-bottom: 1px solid #ddd;
+}
+
+tfoot { 
+  display: table-header-group;
+  input {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+  }
+}
+
+html.turbolinks-progress-bar::before {
+  height: 5px !important;
+  background-color: #008000 !important;
+  z-index: 2000;
+}
+
+input[type="checkbox"] {
+  width:  1.1em;
+  height: 1.1em;
 }

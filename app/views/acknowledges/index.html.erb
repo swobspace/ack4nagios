@@ -21,10 +21,22 @@
           <th>Svc</th>
         </tr>
       </thead>
+      <tfoot>
+	<tr>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	</tr>
+      </tfoot>
       <tbody>
         <% @acknowledges.each do |ack| %>
           <tr>
-            <td class="center"><%= check_box_tag "service_ids[]", ack.id %></td>
+            <td class="nosearch center"><%= check_box_tag "service_ids[]", ack.id %></td>
             <td><%= ack.host_name %></td>
             <td><%= link_to ack.description, 
                     ack.site.nagios_service_link(ack.host_name, ack.description),
@@ -60,6 +72,7 @@
     <%  submit_tag("Mail", class: "btn btn-primary") %>
     <%= submit_tag("Acknowledge", class: "btn btn-primary") %>
     <%= submit_tag("Test", class: "btn btn-default") %>
+    <%= link_to t('actions.reset_table'), "#", id: "reset_table", class: "btn btn-default" %>
   </div>
 <% end %> <!-- end form -->
 

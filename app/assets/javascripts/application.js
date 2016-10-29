@@ -16,4 +16,5 @@
 //= require pdfmake/build/vfs_fonts
 //= require datatables-buttons/js/buttons.colVis
 //= require select2
+//= require ack4nagios
 //
