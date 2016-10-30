@@ -1,0 +1,58 @@
+$icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+@import "wobapphelpers/breadcrumbs";
+@import "common";
+
+body {
+  padding-top: 50px;
+}
+
+// --- FOOTER
+div#footer{
+  font-size: 0.9em;
+  color: #999;
+  margin: 24px 0 0 0;
+  padding: 4px 0 0 0;
+  border-top: 1px solid #eee;
+}
+
+// --- Nagios states
+
+tr td {
+  &.CRITICAL {background-color: #FAA !important;}
+  &.WARNING  {background-color: #FF9 !important;}
+  &.OK       {background-color: #FF9 !important;}
+}
+
+// --- dataTable
+
+table.dataTable.no-footer {
+  border-bottom: 1px solid #ddd;
+}
+
+tfoot { 
+  display: table-header-group;
+  input {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+
+  }
+  th.winzig input[type=text] {
+    width: 16px;
+    padding: 3px;
+    box-sizing: border-box;
+  }
+}
+
+html.turbolinks-progress-bar::before {
+  height: 5px !important;
+  background-color: #008000 !important;
+  z-index: 2000;
+}
+
+input[type="checkbox"] {
+  width:  1.1em;
+  height: 1.1em;
+}

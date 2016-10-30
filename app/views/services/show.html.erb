@@ -9,9 +9,9 @@
   </tr>
   <tr>
     <th><%= t('attributes.service_description')%>:</th>
-    <td><%= link_to @service.service_description, @service.site.nagios_service_link(
-              @service.host, @service.service_description),
-              target: :blank %></td>
+    <td><%= link_to(@service.service_description, "#{@service.site.nagios_service_link(
+              @service.host, @service.service_description)}",
+              target: :blank) %></td>
   </tr>
   <tr>
     <th><%= t('attributes.id')%>:</th>
