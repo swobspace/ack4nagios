@@ -35,5 +35,6 @@ role :db,  config['hosts']['db']
 set :ssh_options, {
     forward_agent: false,
     auth_methods: %w(publickey),
+    host_key: %w(ecdsa-sha2-nistp256 ssh-rsa ssh-dss),
     user: config['user'],
 }
