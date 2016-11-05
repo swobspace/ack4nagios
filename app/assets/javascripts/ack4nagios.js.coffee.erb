@@ -5,6 +5,8 @@
 $.extend $.fn.dataTableExt.oStdClasses,
   sWrapper: "dataTables_wrapper form-inline"
 
+Turbolinks.enableProgressBar()
+
 ready = ->
   $('.dataTable tfoot th').each  (idx) ->
     title = $('.dataTable thead th').eq( $(this).index() ).text()
