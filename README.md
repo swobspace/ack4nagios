@@ -16,8 +16,6 @@ use OMD, but you have to create at least one site in ack4nagios to configure
 livestatus access of your monitoring installation.
 
 
-**THIS APPLICATION IS WORK IN PROGRESS AND NOT FUNCTIONAL YET!** 
-
 Requirements
 ------------
 
@@ -26,24 +24,12 @@ Requirements
 
 System dependencies
 -------------------
-TBD
-
-Installation
-------------
-TBD
-
-Configuration
--------------
-TBD
-
-Deployment
-----------
-TBD
+Nagios with the livestatus broker module must be running on the same host as ack4nagios.
 
 Licence
 -------
 
-ack4nagios Copyright (C) 2014  Wolfgang Barth
+ack4nagios Copyright (C) 2014-2018  Wolfgang Barth
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
