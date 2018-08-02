@@ -7,6 +7,7 @@ set :application, 'ack4nagios'
 set :repo_url, config['repo_url']
 set :relative_url_root, config['relative_url_root'] || '/'
 set :ruby_path, config['ruby_path'] + ":$PATH" || "$PATH"
+set :passenger_restart_with_touch, true
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
