@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.7'
 gem 'rails-i18n'
-gem 'mysql2'
+gem 'mysql2', '~> 0.4.0'
 
 gem 'sassc-rails'
 gem 'uglifier', '>= 1.3.0'
@@ -44,6 +44,7 @@ group :development do
   gem "capistrano", '~> 3.6'
   gem "capistrano-rails", '~> 1.1'
   gem 'capistrano-passenger'
+  gem 'capistrano-yarn'
   gem "railroady"
   gem "better_errors"
   gem "binding_of_caller"
