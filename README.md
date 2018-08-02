@@ -15,11 +15,19 @@ configuration parameters to access your livestatus module. There is no need to
 use OMD, but you have to create at least one site in ack4nagios to configure
 livestatus access of your monitoring installation.
 
+Versions
+--------
+
+| branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
+|            |       |        |           |                 | + wobauth     |
+|------------|-------|--------|-----------|-----------------|---------------|
+| master     | >=5.1 | >= 2.3 |  v3       | glyphicons      | 2-0-stable    |
+| 0.2-stable |  4.2  | >= 2.3 |  v3       | glyphicons      | 1-0-stable    |
+
 
 Requirements
 ------------
 
-* ruby >= 2.0
 * Nagios with livestatus broker module loaded, see http://mathias-kettner.de/checkmk_livestatus.html for details.
 
 System dependencies
