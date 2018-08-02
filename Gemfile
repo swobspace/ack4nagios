@@ -15,7 +15,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',	group: :doc
 
 gem 'jquery-ui-rails'
-gem 'bower-rails'
 
 gem 'simple_form'
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '1-0-stable'

@@ -45,7 +45,7 @@ GIT
 
 GIT
   remote: https://github.com/swobspace/wobauth.git
-  revision: 7eff57a1cdcbebfa324fe79147d3da3b6b42fbf3
+  revision: 5831e662ec29a827f250f4c346826cccfc31a1f9
   branch: 1-0-stable
   specs:
     wobauth (1.0.1)
@@ -110,7 +110,6 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    bower-rails (0.11.0)
     builder (3.2.3)
     callsite (0.0.11)
     cancancan (1.17.0)
@@ -409,7 +408,6 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  bower-rails
   cancancan
   capistrano (~> 3.6)
   capistrano-passenger
