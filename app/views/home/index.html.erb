@@ -1,7 +1,10 @@
 <h1>ack4nagios</h1>
 <p>ack4nagios is a rails application to acknowledge failed nagios
 services and execute additional actions i.e. send an email,
-create an otrs ticket and so on. ack4nagios is intended to integrate
+<% if defined? Ottrick %>
+create an otrs ticket 
+<% end %>
+and so on. ack4nagios is intended to integrate
 in any web GUI for Nagios via action_url, it does not replace
 such a web GUI by itself.
 </p>

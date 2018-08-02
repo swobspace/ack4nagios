@@ -2,7 +2,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require ottrick/ottrick
+/// require ottrick/ottrick
 //= require jszip/dist/jszip
 //= require pdfmake/build/pdfmake
 //= require pdfmake/build/vfs_fonts

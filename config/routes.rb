@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   post ':site/acknowledges' => 'acknowledges#create'
 
   mount Wobauth::Engine, at: '/auth'
-  mount Ottrick::Engine, at: '/tts'
+  if defined? Ottrick
+    mount Ottrick::Engine, at: '/tts'
+  end
 
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.

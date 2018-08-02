@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '~> 4.2.7'
+gem 'rails', '~> 5.0.0'
 gem 'rails-i18n'
-gem 'mysql2', '~> 0.4.0'
+gem 'mysql2'
 
 gem 'sassc-rails'
 gem 'uglifier', '>= 1.3.0'
@@ -17,9 +17,9 @@ gem 'sdoc', '~> 0.4.0',	group: :doc
 gem 'jquery-ui-rails'
 
 gem 'simple_form'
-gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '1-0-stable'
+gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '2-0-stable'
 gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git',
-                     branch: '1-0-stable'
+                     branch: '2-0-stable'
 
 # check_mk livestatus
 # see http://mathias-kettner.de/checkmk_livestatus.html for more information
@@ -27,8 +27,8 @@ gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git',
 gem 'livestatus', git: 'https://github.com/swobspace/livestatus.git',
                   branch: 'master'
 
-gem 'ottick', git: 'https://github.com/swobspace/ottick.git', branch: "master"
-gem 'ottrick', git: 'https://github.com/swobspace/ottrick.git', branch: "master"
+# gem 'ottick', git: 'https://github.com/swobspace/ottick.git', branch: "master"
+# gem 'ottrick', git: 'https://github.com/swobspace/ottrick.git', branch: "master"
 gem 'cancancan'
 gem 'figaro', '~> 1.0.0'
 

@@ -18,10 +18,14 @@ class AcknowledgesController < ApplicationController
       flash[:notice] = t('ack4nagios.no_checkbox_set')
     else
       if commit == 'Ticket'
-        if merge_acks
-	  create_merged_ticket(@acknowledges, acknowledge_params)
+        if defined? Ottrick
+          if merge_acks
+	    create_merged_ticket(@acknowledges, acknowledge_params)
+          else
+	    create_service_tickets(@acknowledges, acknowledge_params)
+          end
         else
-	  create_service_tickets(@acknowledges, acknowledge_params)
+          raise RuntimeError, "Ottrick is not yet available"
         end
       elsif commit == 'Mail'
       elsif commit == 'Acknowledge'
