@@ -2,17 +2,19 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '~> 4.2.7'
-gem 'sass-rails'
+gem 'rails-i18n'
+gem 'mysql2'
+
+gem 'sassc-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '>= 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  	platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks',  '~> 2.5.3'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',	group: :doc
-
 gem "bower-rails", "~> 0.11.0"
+
 gem 'jquery-ui-rails'
 
 gem 'simple_form'
@@ -29,7 +31,7 @@ gem 'livestatus', git: 'https://github.com/swobspace/livestatus.git',
 gem 'ottick', git: 'https://github.com/swobspace/ottick.git', branch: "master"
 gem 'ottrick', git: 'https://github.com/swobspace/ottrick.git', branch: "master"
 gem 'cancancan'
-gem 'figaro', '~> 1.0.0.rc1'
+gem 'figaro', '~> 1.0.0'
 
 group :development do
   gem 'puma'
@@ -40,7 +42,7 @@ group :development do
   gem 'guard-bundler'
   gem "guard-rspec", require: false
   gem "capistrano", '~> 3.6'
-  gem "capistrano-rails", '~> 1.1.1'
+  gem "capistrano-rails", '~> 1.1'
   gem 'capistrano-passenger'
   gem "railroady"
   gem "better_errors"
@@ -56,13 +58,10 @@ group :test, :development do
 end
 
 group :test do
-  gem "shoulda", require: false
-  gem 'factory_girl_rails'
+  gem "shoulda-matchers", require: false
+  gem 'factory_bot_rails'
   gem 'database_rewinder'
   gem "capybara"
   gem "poltergeist"
 end
 
-group :production do
-  gem 'mysql2'
-end
