@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "services/index", :type => :view do
   before(:each) do
-    @site = FactoryGirl.create(:site)
+    @site = FactoryBot.create(:site)
     assign(:services, [
       Service.create!(
         :site => @site,

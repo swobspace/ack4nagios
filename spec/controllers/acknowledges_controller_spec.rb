@@ -21,7 +21,7 @@ require 'rails_helper'
 RSpec.describe AcknowledgesController, :type => :controller do
 
   let(:valid_session) { {} }
-  let(:site) { FactoryGirl.create(:site) }
+  let(:site) { FactoryBot.create(:site) }
 
   describe "GET index" do
     it "assigns all acknowledges as @acknowledges" do
