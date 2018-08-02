@@ -1,3 +1,15 @@
+// @import "font-awesome-sprockets";
+// @import "font-awesome";
+// @import "v4-shims.min";
+
+// $custom: #111;
+// $theme-colors: (
+//   "custom": $custom
+// );
+// allow overwrite with custom color
+// default: symlink to _colors-wobteal.scss
+// @import "custom-colors";
+
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
@@ -5,7 +17,7 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "common";
 
 body {
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 // --- FOOTER

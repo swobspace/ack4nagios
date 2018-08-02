@@ -1,12 +1,13 @@
 # config valid only for Capistrano 3.1
-lock '3.6.1'
+lock '~>3.11'
 
 config = YAML.load_file('config/deploy-config.yml') || {}
 
 set :application, 'ack4nagios'
 set :repo_url, config['repo_url']
 set :relative_url_root, config['relative_url_root'] || '/'
-set :ruby_path, config['ruby_path'] + ":$PATH" || "$PATH"
+set :ruby_path, ( config['ruby_path'].nil? ) ?  "$PATH" : config['ruby_path'] + ":$PATH"
+set :passenger_restart_with_touch, true
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -65,17 +66,3 @@ namespace :deploy do
     end
   end
 end
-
-namespace :bower do
-  desc 'Install bower'
-  task :install do
-    on roles(:web) do
-      within release_path do
-        execute :rake, 'bower:install CI=true'
-      end
-    end
-  end
-end
-
-before 'deploy:compile_assets', 'bower:install'
-

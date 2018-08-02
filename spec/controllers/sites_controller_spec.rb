@@ -24,7 +24,7 @@ RSpec.describe SitesController, :type => :controller do
   # Site. As you add validations to Site, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryGirl.attributes_for(:site)
+    FactoryBot.attributes_for(:site)
   }
 
   let(:invalid_attributes) {{

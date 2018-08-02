@@ -13,20 +13,20 @@
 
 ActiveRecord::Schema.define(version: 20140719122025) do
 
-  create_table "ottrick_otrs_queues", force: true do |t|
+  create_table "ottrick_otrs_queues", force: :cascade do |t|
     t.string   "name"
     t.integer  "otrs_queue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "ottrick_tickets", force: true do |t|
+  create_table "ottrick_tickets", force: :cascade do |t|
     t.integer  "ticketfor_id"
     t.string   "ticketfor_type"
     t.string   "sender"
     t.integer  "otrs_queue_id"
     t.string   "subject",        default: ""
-    t.text     "text",           default: ""
+    t.text     "text"
     t.string   "ticketnumber",   default: ""
     t.integer  "otrs_ticket_id"
     t.datetime "created_at"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140719122025) do
   add_index "ottrick_tickets", ["otrs_ticket_id"], name: "index_ottrick_tickets_on_otrs_ticket_id"
   add_index "ottrick_tickets", ["ticketfor_id"], name: "index_ottrick_tickets_on_ticketfor_id"
 
-  create_table "services", force: true do |t|
+  create_table "services", force: :cascade do |t|
     t.integer  "site_id"
     t.string   "host",                default: ""
     t.string   "service_description", default: ""
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20140719122025) do
   add_index "services", ["service_description"], name: "index_services_on_service_description"
   add_index "services", ["site_id"], name: "index_services_on_site_id"
 
-  create_table "sites", force: true do |t|
+  create_table "sites", force: :cascade do |t|
     t.string   "name",               default: ""
     t.string   "connection_type",    default: ""
     t.string   "uri",                default: ""
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140719122025) do
 
   add_index "sites", ["otrs_queue_id"], name: "index_sites_on_otrs_queue_id"
 
-  create_table "wobauth_authorities", force: true do |t|
+  create_table "wobauth_authorities", force: :cascade do |t|
     t.integer  "authorizable_id"
     t.string   "authorizable_type"
     t.integer  "role_id"
@@ -77,14 +77,14 @@ ActiveRecord::Schema.define(version: 20140719122025) do
   add_index "wobauth_authorities", ["authorized_for_id"], name: "index_wobauth_authorities_on_authorized_for_id"
   add_index "wobauth_authorities", ["role_id"], name: "index_wobauth_authorities_on_role_id"
 
-  create_table "wobauth_groups", force: true do |t|
+  create_table "wobauth_groups", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "wobauth_memberships", force: true do |t|
+  create_table "wobauth_memberships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "group_id"
     t.boolean  "auto",       default: false
@@ -95,13 +95,13 @@ ActiveRecord::Schema.define(version: 20140719122025) do
   add_index "wobauth_memberships", ["group_id"], name: "index_wobauth_memberships_on_group_id"
   add_index "wobauth_memberships", ["user_id"], name: "index_wobauth_memberships_on_user_id"
 
-  create_table "wobauth_roles", force: true do |t|
+  create_table "wobauth_roles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "wobauth_users", force: true do |t|
+  create_table "wobauth_users", force: :cascade do |t|
     t.string   "username",               default: "", null: false
     t.text     "gruppen"
     t.string   "sn"

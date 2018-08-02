@@ -7,8 +7,8 @@ RSpec.describe Service, :type => :model do
   it { is_expected.to validate_presence_of(:site_id) }
 
   it "should get plain factory working" do
-    f = FactoryGirl.create(:service)
-    g = FactoryGirl.create(:service)
+    f = FactoryBot.create(:service)
+    g = FactoryBot.create(:service)
     expect(f).to be_valid
     expect(g).to be_valid
   end
