@@ -20,16 +20,16 @@ class AcknowledgesController < ApplicationController
       if commit == 'Ticket'
         if defined? Ottrick
           if merge_acks
-	    create_merged_ticket(@acknowledges, acknowledge_params)
+	    create_merged_ticket(@acknowledges, ack_params)
           else
-	    create_service_tickets(@acknowledges, acknowledge_params)
+	    create_service_tickets(@acknowledges, ack_params)
           end
         else
           raise RuntimeError, "Ottrick is not yet available"
         end
       elsif commit == 'Mail'
       elsif commit == 'Acknowledge'
-	acknowledge_services(acknowledge_params)
+	acknowledge_services(ack_params)
       elsif commit == 'Test'
       end
       if @errors.any?
@@ -62,11 +62,19 @@ class AcknowledgesController < ApplicationController
   end
 
   def acknowledge_params
-    params.permit(:site, :comment, {service_ids: []}, :merge)
+    params.permit(
+      :site, :comment, {service_ids: []}, :merge, :filter,
+      :utf8, :authenticity_token, :commit,
+      :dataTable_length, :idx0, :idx1, :idx2, :idx3, :idx4, :idx5, :idx6, :idx7
+    )
+  end
+ 
+  def ack_params
+    acknowledge_params.slice(:site, :comment, :service_ids, :merge)
   end
 
   def filter_params
-    params.permit(:site, :filter)
+    acknowledge_params.slice(:site, :filter)
   end
 
   def service_ids
@@ -92,4 +100,5 @@ class AcknowledgesController < ApplicationController
   def merge_acks
     params[:merge].to_i == 1
   end
+
 end
