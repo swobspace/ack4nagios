@@ -1,4 +1,4 @@
 module Ack4nagios
-  VERSION     = "0.1.2".freeze
-  RELEASEDATE = "2018-01-01".freeze
+  VERSION     = "0.2.0".freeze
+  RELEASEDATE = "2018-08-02".freeze
 end
