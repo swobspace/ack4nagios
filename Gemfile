@@ -65,3 +65,6 @@ group :test do
   gem "poltergeist"
 end
 
+gem 'record_tag_helper', '~> 1.0'
+gem 'rails-controller-testing'
+
