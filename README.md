@@ -24,6 +24,9 @@ Versions
 | master     | >=5.1 | >= 2.3 |  v3       | glyphicons      | 2-0-stable    |
 | 0.2-stable |  4.2  | >= 2.3 |  v3       | glyphicons      | 1-0-stable    |
 
+Breaking Change
+---------------
+In Version 1.0 OTRS is disabled. May be readded later.
 
 Requirements
 ------------
