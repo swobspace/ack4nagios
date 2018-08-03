@@ -64,17 +64,17 @@ class AcknowledgesController < ApplicationController
   def acknowledge_params
     params.permit(
       :site, :comment, {service_ids: []}, :merge, :filter,
-      :utf8, :authenticity_token, :commit,
+      :utf8, :authenticity_token, :commit, :checkAll,
       :dataTable_length, :idx0, :idx1, :idx2, :idx3, :idx4, :idx5, :idx6, :idx7
     )
   end
  
   def ack_params
-    acknowledge_params.slice(:site, :comment, :service_ids, :merge)
+    acknowledge_params.slice(:site, :comment, :service_ids, :merge).to_hash
   end
 
   def filter_params
-    acknowledge_params.slice(:site, :filter)
+    acknowledge_params.slice(:site, :filter).to_hash
   end
 
   def service_ids
