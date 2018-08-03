@@ -2,9 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$.extend $.fn.dataTableExt.oStdClasses,
-  sWrapper: "dataTables_wrapper form-inline"
-
 Turbolinks.enableProgressBar()
 
 ready = ->
@@ -14,26 +11,13 @@ ready = ->
 
   table = $(".dataTable").DataTable(
     pagingType: "full_numbers"
-    dom: "<'row'<'col-md-3'l><'col-md-5 btn-group'BC><'col-md-4'f>>t<'row'<'col-md-6'ir><'col-md-6'p>>"
+    dom: "<'row'<'col-md-3'l><'col-md-5'BC><'col-md-4'f>>t<'row'<'col-md-6'ir><'col-md-6'p>>"
     stateSave: true
     responsive: true
     buttons: [
       {
-        extend: 'copy',
-        exportOptions: {
-          columns: ':visible',
-          search: ':applied'
-        }
-      },
-      {
         extend: 'excel',
-        exportOptions: {
-          columns: ':visible',
-          search: ':applied'
-        }
-      },
-      {
-        extend: 'csv',
+        className: 'btn-outline-secondary btn-sm',
         exportOptions: {
           columns: ':visible',
           search: ':applied'
@@ -41,6 +25,7 @@ ready = ->
       },
       {
         extend: 'pdf',
+        className: 'btn-outline-secondary btn-sm',
         orientation: 'landscape',
         pageSize: 'A4',
         exportOptions: {
@@ -48,9 +33,13 @@ ready = ->
           search: ':applied'
        }
       },
-      'print',
+      {
+        extend: 'print',
+        className: 'btn-outline-secondary btn-sm',
+      },
       {
         extend: 'colvis',
+        className: 'btn-outline-secondary btn-sm',
         text: "<%= I18n.t('ack4nagios.change_columns') %>"
       }
     ]
