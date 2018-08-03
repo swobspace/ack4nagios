@@ -1,5 +1,6 @@
 de:
   ack4nagios:
+    action: Aktion
     acks: Acknowledges
     acknowledges_set: Acknowledges gesetzt.
     change_columns: Spalten ändern

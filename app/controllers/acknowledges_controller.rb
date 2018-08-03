@@ -13,11 +13,11 @@ class AcknowledgesController < ApplicationController
   def create
     @errors  = []
     @success = []
-    @params = acknowledge_params.merge(commit: commit)
+    @params = acknowledge_params
     if service_ids.empty?
       flash[:notice] = t('ack4nagios.no_checkbox_set')
     else
-      if commit == 'Ticket'
+      if acktion == 'ticket'
         if defined? Ottrick
           if merge_acks
 	    create_merged_ticket(@acknowledges, ack_params)
@@ -27,10 +27,10 @@ class AcknowledgesController < ApplicationController
         else
           raise RuntimeError, "Ottrick is not yet available"
         end
-      elsif commit == 'Mail'
-      elsif commit == 'Acknowledge'
+      elsif acktion == 'mail'
+      elsif acktion == 'ack'
 	acknowledge_services(ack_params)
-      elsif commit == 'Test'
+      elsif acktion == 'test'
       end
       if @errors.any?
 	flash[:error] = @errors.join("\n")
@@ -41,7 +41,7 @@ class AcknowledgesController < ApplicationController
     end
     respond_to do |format|
       format.html { 
-        if commit == 'Test'
+        if acktion == 'test'
           render :create
         else
           sleep 1
@@ -63,7 +63,7 @@ class AcknowledgesController < ApplicationController
 
   def acknowledge_params
     params.permit(
-      :site, :comment, {service_ids: []}, :merge, :filter,
+      :site, :comment, {service_ids: []}, :merge, :filter, :acktion,
       :utf8, :authenticity_token, :commit, :checkAll,
       :dataTable_length, :idx0, :idx1, :idx2, :idx3, :idx4, :idx5, :idx6, :idx7
     )
@@ -95,6 +95,10 @@ class AcknowledgesController < ApplicationController
 
   def commit
     params[:commit]
+  end
+
+  def acktion
+    params[:acktion]
   end
 
   def merge_acks
