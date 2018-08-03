@@ -2,8 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-Turbolinks.enableProgressBar()
-
 ready = ->
   $('.dataTable tfoot th').each  (idx) ->
     title = $('.dataTable thead th').eq( $(this).index() ).text()
@@ -70,5 +68,5 @@ ready = ->
     $('input[type=search]').val("").trigger('input')
   )
 
+$(document).on('turbolinks:load', ready)
 
-$(document).on('ready page:load', ready)
