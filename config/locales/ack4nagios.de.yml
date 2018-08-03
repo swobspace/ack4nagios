@@ -1,5 +1,6 @@
 de:
   ack4nagios:
+    action: Aktion
     acks: Acknowledges
     acknowledges_set: Acknowledges gesetzt.
     change_columns: Spalten ändern
@@ -38,6 +39,7 @@ de:
     givenname: Vorname
     host: Host
     host_name: Host
+    id: ID
     nagios_service_url: Nagios Service Url
     name: Name
     last_hard_state_change: Letzter Statuswechsel

@@ -13,20 +13,24 @@ class AcknowledgesController < ApplicationController
   def create
     @errors  = []
     @success = []
-    @params = acknowledge_params.merge(commit: commit)
+    @params = acknowledge_params
     if service_ids.empty?
       flash[:notice] = t('ack4nagios.no_checkbox_set')
     else
-      if commit == 'Ticket'
-        if merge_acks
-	  create_merged_ticket(@acknowledges, acknowledge_params)
+      if acktion == 'ticket'
+        if defined? Ottrick
+          if merge_acks
+	    create_merged_ticket(@acknowledges, ack_params)
+          else
+	    create_service_tickets(@acknowledges, ack_params)
+          end
         else
-	  create_service_tickets(@acknowledges, acknowledge_params)
+          raise RuntimeError, "Ottrick is not yet available"
         end
-      elsif commit == 'Mail'
-      elsif commit == 'Acknowledge'
-	acknowledge_services(acknowledge_params)
-      elsif commit == 'Test'
+      elsif acktion == 'mail'
+      elsif acktion == 'ack'
+	acknowledge_services(ack_params)
+      elsif acktion == 'test'
       end
       if @errors.any?
 	flash[:error] = @errors.join("\n")
@@ -37,10 +41,10 @@ class AcknowledgesController < ApplicationController
     end
     respond_to do |format|
       format.html { 
-        if commit == 'Test'
+        if acktion == 'test'
           render :create
         else
-          sleep 1
+          sleep 2
           redirect_to main_app.url_for(filter_params.merge(action: :index)) 
         end
       }
@@ -58,11 +62,19 @@ class AcknowledgesController < ApplicationController
   end
 
   def acknowledge_params
-    params.permit(:site, :comment, {service_ids: []}, :merge)
+    params.permit(
+      :site, :comment, {service_ids: []}, :merge, :filter, :acktion,
+      :utf8, :authenticity_token, :commit, :checkAll,
+      :dataTable_length, :idx0, :idx1, :idx2, :idx3, :idx4, :idx5, :idx6, :idx7
+    )
+  end
+ 
+  def ack_params
+    acknowledge_params.slice(:site, :comment, :service_ids, :merge).to_hash
   end
 
   def filter_params
-    params.permit(:site, :filter)
+    acknowledge_params.slice(:site, :filter).to_hash
   end
 
   def service_ids
@@ -85,7 +97,12 @@ class AcknowledgesController < ApplicationController
     params[:commit]
   end
 
+  def acktion
+    params[:acktion]
+  end
+
   def merge_acks
     params[:merge].to_i == 1
   end
+
 end

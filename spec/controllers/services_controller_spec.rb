@@ -28,7 +28,7 @@ RSpec.describe ServicesController, :type => :controller do
   describe "GET index" do
     it "assigns all services as @services" do
       service = FactoryBot.create(:service)
-      get :index, {}, valid_session
+      get :index, params: {}, session: valid_session
       expect(assigns(:services)).to eq([service])
     end
   end
@@ -36,7 +36,7 @@ RSpec.describe ServicesController, :type => :controller do
   describe "GET show" do
     it "assigns the requested service as @service" do
       service = FactoryBot.create(:service)
-      get :show, {:id => service.to_param}, valid_session
+      get :show, params: {:id => service.to_param}, session: valid_session
       expect(assigns(:service)).to eq(service)
     end
   end

@@ -25,10 +25,23 @@ RSpec.describe AcknowledgesController, :type => :controller do
 
   describe "GET index" do
     it "assigns all acknowledges as @acknowledges" do
-      get :index, {site: site.name}, valid_session
+      get :index, params: {site: site.name}, session: valid_session
       expect(response).to render_template("index")
-      # expect(assigns(:acknowledges)).to be_kind_of Array
-      # expect(assigns(:acknowledges).first).to be_kind_of Acknowledge
+    end
+  end
+
+  describe "POST #create" do
+    context "with empty services" do
+      it "does not raise an error" do
+        expect {
+          post :create, params: {site: site.name, acktion: 'ack'}
+        }.not_to raise_error
+      end
+
+      it "redirects #index" do
+        post :create, params: {site: site.name, acktion: 'ack'}
+        expect(response).to redirect_to(acknowledges_path)
+      end
     end
   end
 

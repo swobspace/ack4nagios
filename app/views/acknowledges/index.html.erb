@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
+
 <h1><%= t('controller.acknowledges') %></h1>
 
 <%= form_tag(
@@ -7,72 +11,84 @@
 
   <%= hidden_field_tag :filter, @filter %>
 
-  <div class="form-group">
-    <table id="dataTable" class="table table-bordered table-striped dataTable">
-      <thead>
-        <tr>
-          <th class="center nosort"><%= check_box_tag "checkAll" %></th>
-          <th><%= t('attributes.host_name') %></th>
-          <th><%= t('attributes.service_description') %></th>
-          <th><%= t('attributes.state') %></th>
-          <th><%= t('attributes.plugin_output') %></th>
-          <th><%= t('attributes.age') %></th>
-          <th><%= t('attributes.last_time_ok') %></th>
-          <th>Svc</th>
-        </tr>
-      </thead>
-      <tfoot>
+  <table id="dataTable" class="table table-bordered table-striped dataTable">
+    <thead>
+      <tr>
+	<th class="center nosort"><%= check_box_tag "checkAll" %></th>
+	<th><%= t('attributes.host_name') %></th>
+	<th><%= t('attributes.service_description') %></th>
+	<th><%= t('attributes.state') %></th>
+	<th><%= t('attributes.plugin_output') %></th>
+	<th><%= t('attributes.age') %></th>
+	<th><%= t('attributes.last_time_ok') %></th>
+	<th>Svc</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+	<th class="winzig"></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+      </tr>
+    </tfoot>
+    <tbody>
+      <% @acknowledges.each do |ack| %>
 	<tr>
-	  <th class="winzig"></th>
-	  <th></th>
-	  <th></th>
-	  <th></th>
-	  <th></th>
-	  <th></th>
-	  <th></th>
-	  <th></th>
+	  <td class="nosort center"><%= check_box_tag "service_ids[]", ack.id %></td>
+	  <td><%= ack.host_name %></td>
+	  <td><%= link_to ack.description, 
+		  ack.site.nagios_service_link(ack.host_name, ack.description),
+		  target: :blank %></td>
+	  <%= show_state(ack.state) %>
+	  <td><%= ack.plugin_output %></td>
+	  <td class="center"><%= (Time.now.to_i - ack.last_time_ok.to_i)/86400 %></td>
+	  <td><%= Time.at(ack.last_time_ok).to_date.to_s %></td>
+	  <td class="center"><%= link_to ack.service_id, service_path(ack.service_id) %></td>
 	</tr>
-      </tfoot>
-      <tbody>
-        <% @acknowledges.each do |ack| %>
-          <tr>
-            <td class="nosort center"><%= check_box_tag "service_ids[]", ack.id %></td>
-            <td><%= ack.host_name %></td>
-            <td><%= link_to ack.description, 
-                    ack.site.nagios_service_link(ack.host_name, ack.description),
-                    target: :blank %></td>
-            <%= show_state(ack.state) %>
-            <td><%= ack.plugin_output %></td>
-            <td class="center"><%= (Time.now.to_i - ack.last_time_ok.to_i)/86400 %></td>
-            <td><%= Time.at(ack.last_time_ok).to_date.to_s %></td>
-            <td class="center"><%= link_to ack.service_id, service_path(ack.service_id) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+      <% end %>
+    </tbody>
+  </table>
 
-  <div class="form-group">
-     <label>
-       <%= check_box_tag 'merge' %> 
-       <%= t('ack4nagios.merge_acknowledges') %>
-     </label>
-  </div>
+  <br />
 
-  <div class="form-group">
+  <div class="form-group ml-2">
     <%= label_tag 'comment', t('ack4nagios.nagios_comment') +
-          '(' + t('ack4nagios.mandantory') + '): ' %>
+	  '(' + t('ack4nagios.mandantory') + '): ' %>
     <%= text_field_tag 'comment', nil, class: 'form-control' %>
   </div>
-  
-  <div class="btn-toolbar">
+    
+  <div class="form-row align-items-center m-1">
+    <div class="col-auto">
+      <label for="action" class="sr-only"><%= t('ack4nagios.action') %></label>
+      <%= select_tag(
+	    "acktion", 
+	    options_for_select(
+	      # {"Mail" => "mail", "Acknowledge" => "ack", "Test" => "test"},
+	      {"Acknowledge" => "ack", "Test" => "test"},
+	      "ack"),
+	    class: 'form-control'
+	  ) %>
+      </select>
+    </div> 
+    <div class="col-auto ml-3">
+      <div class="form-check mb-2">
+	 <%= check_box_tag 'merge' , "1", false, class: "form-check-input" %> 
+	 <label class="form-check-label">
+	   <%= t('ack4nagios.merge_acknowledges') %>
+	 </label>
+      </div>
+    </div>
+  </div> 
+
+  <div role="toolbar" class="mt-3">
     <%= back_link %>
-    <%= submit_tag("Ticket", class: "btn btn-primary") %>
-    <button class="btn btn-default disabled">Mail</button>
-    <%  submit_tag("Mail", class: "btn btn-primary") %>
     <%= submit_tag("Acknowledge", class: "btn btn-primary") %>
-    <%= submit_tag("Test", class: "btn btn-default") %>
-    <%= link_to t('actions.reset_table'), "#", id: "reset_table", class: "btn btn-default" %>
+    <%= link_to t('actions.reset_table'), "#", id: "reset_table", class: "btn btn-secondary" %>
   </div>
 <% end %> <!-- end form -->
 
