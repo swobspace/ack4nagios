@@ -6,7 +6,9 @@
     <th><%= t('attributes.name') %></th>
     <th><%= t('attributes.connection_type') %></th>
     <th><%= t('attributes.uri') %></th>
-    <th><%= t('attributes.otrs_queue') %></th>
+    <% if defined? Ottrick %>
+      <th><%= t('attributes.otrs_queue') %></th>
+    <% end %>
     <th><%= t('attributes.nagios_service_url') %></th>
     <th></th>
   </tr>
@@ -18,7 +20,9 @@
     <td><%= link_to site.name, acknowledges_path(site: site) %></td>
     <td><%= site.connection_type %></td>
     <td><%= site.uri %></td>
-    <td><%= site.otrs_queue %></td>
+    <% if defined? Ottrick %>
+      <td><%= site.otrs_queue %></td>
+    <% end %>
     <td><%= site.nagios_service_url %></td>
     <td class="nowrap">
       <%= show_link site %>

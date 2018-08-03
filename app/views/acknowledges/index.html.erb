@@ -67,7 +67,7 @@
   
   <div class="btn-toolbar">
     <%= back_link %>
-    <%= submit_tag("Ticket", class: "btn btn-primary") %>
+    <%= submit_tag("Ticket", class: "btn btn-primary") if defined? Ottrick %>
     <button class="btn btn-default disabled">Mail</button>
     <%  submit_tag("Mail", class: "btn btn-primary") %>
     <%= submit_tag("Acknowledge", class: "btn btn-primary") %>

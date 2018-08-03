@@ -11,10 +11,12 @@
     <th><%= t('attributes.uri')%>:</th>
     <td><%= @site.uri %></td>
   </tr>
-  <tr>
+  <% if defined? Ottrick %>
+   <tr>
     <th><%= t('attributes.otrs_queue')%>:</th>
     <td><%= @site.otrs_queue %></td>
-  </tr>
+   </tr>
+  <% end %>
   <tr>
     <th><%= t('attributes.nagios_service_url')%>:</th>
     <td><%= @site.nagios_service_url %></td>

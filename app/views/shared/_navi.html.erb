@@ -10,7 +10,7 @@
       </ul>
     </li>
   <% end %>
-  <% if can? :navigate, :tts %>
+  <% if can?(:navigate, :tts) && defined?(Ottrick) %>
     <li class="dropdown <%= tts_active_class %>">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <%= t('ack4nagios.tts') %><b class="caret"></b></a>

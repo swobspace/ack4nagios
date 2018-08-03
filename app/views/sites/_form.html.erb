@@ -19,7 +19,7 @@
        %>
       <%= f.input :uri
        %>
-      <%= f.association :otrs_queue
+      <%= f.association :otrs_queue if defined? Ottrick
        %>
       <%= f.input :nagios_service_url
        %>
