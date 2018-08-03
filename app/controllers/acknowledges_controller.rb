@@ -44,7 +44,7 @@ class AcknowledgesController < ApplicationController
         if acktion == 'test'
           render :create
         else
-          sleep 1
+          sleep 2
           redirect_to main_app.url_for(filter_params.merge(action: :index)) 
         end
       }
