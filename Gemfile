@@ -10,7 +10,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '>= 4.0.0'
 gem 'therubyracer',  	platforms: :ruby
 gem 'jquery-rails'
-gem 'turbolinks',  '~> 2.5.3'
+gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',	group: :doc
 gem 'font-awesome-sass', '~> 5.2.0'
@@ -18,9 +18,8 @@ gem 'font-awesome-sass', '~> 5.2.0'
 gem 'jquery-ui-rails'
 
 gem 'simple_form'
-gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '2-0-stable'
-gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git',
-                     branch: '2-0-stable'
+gem 'wobauth', '~> 3.4.4'
+gem 'wobapphelpers', '~> 3.1'
 
 # check_mk livestatus
 # see http://mathias-kettner.de/checkmk_livestatus.html for more information

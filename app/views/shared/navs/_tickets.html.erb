@@ -1,0 +1,13 @@
+<% if can?(:navigate, :tts) && defined?(Ottrick) %>
+  <li class="nav-item dropdown <%= active_class('hosts') %>">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarTicketLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= t('ack4nagios.tts') %>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarTicketLink">
+      <% Ack4nagios::TTS_CONTROLLER.each do |ctrlr| %>
+	  <%=link_to t('controller.ottrick/' + ctrlr), ottrick.send("#{ctrlr}_path"),
+               class: 'dropdown-item'%>
+      <% end %>
+    </div>
+  </li>
+<% end %>
