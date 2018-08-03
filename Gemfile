@@ -18,7 +18,7 @@ gem 'font-awesome-sass', '~> 5.2.0'
 gem 'jquery-ui-rails'
 
 gem 'simple_form'
-gem 'wobauth', '~> 3.4.4'
+gem 'wobauth', '~> 3.4.7'
 gem 'wobapphelpers', '~> 3.1'
 
 # check_mk livestatus

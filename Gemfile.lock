@@ -347,7 +347,7 @@ GEM
       record_tag_helper (~> 1.0)
       responders
       sassc-rails
-    wobauth (3.4.6)
+    wobauth (3.4.7)
       cancancan
       coffee-rails
       devise
@@ -412,7 +412,7 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   wobapphelpers (~> 3.1)
-  wobauth (~> 3.4.4)
+  wobauth (~> 3.4.7)
 
 BUNDLED WITH
    1.16.3
