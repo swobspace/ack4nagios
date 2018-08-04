@@ -25,3 +25,14 @@ Models
     bin/rails g scaffold Service site:string:index host:string:index \
                 service_description:string:index
 
+Jobs
+====
+
+    bin/rails g job create_service_mails
+    bin/rails g job create_merged_services_mail
+
+Mailer
+=====
+
+    bin/rails g mailer ServiceMail
+

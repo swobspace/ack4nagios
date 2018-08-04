@@ -1,0 +1,2 @@
+class ServiceMailMailer < ApplicationMailer
+end
